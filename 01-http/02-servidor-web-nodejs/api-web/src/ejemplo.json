@@ -1,0 +1,9 @@
+{
+  "nombre":"Edgar",
+  "apellido":"Guaman",
+  "edad":23,
+  "sueldo":46.54,
+  "casado": false,
+  "hijos": null,
+  "mascotas":["firulais", 1, 1.34, false, null]
+}
