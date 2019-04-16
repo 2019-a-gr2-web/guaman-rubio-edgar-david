@@ -9,7 +9,7 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-  
+
   @HttpCode(200)
 
   @Post() //Método http
