@@ -1,5 +1,8 @@
 import {Controller, Delete, Get, HttpCode, Post, Put, Headers, Query, Param, Body, Response, Request} from '@nestjs/common';
 import { AppService } from './app.service';
+import * as Joi from '@hapi/joi';
+
+//Instalar la librería joi mediante npm i @hapi/joi
 
 @Controller('/api')
 export class AppController {
@@ -88,41 +91,42 @@ export class AppController {
     }
 
     @Get('/semilla')
-    semilla(@Request() request){
-      console.log(request.cookies);
-      const cookies = request.cookies;
-      if(cookies.micookie){
-        return 'OK';
-      }else{
-        return 'Sorry men';
-      }
+    semilla(@Request() request,@Response() response){
+        console.log(request.cookies);
+        const cookies = request.cookies; // JSON
+        const esquemaValidacionNumero = Joi.object().keys({numero: Joi.number().integer().required()});
+        const objetoValidacion = {numero: cookies.numero};
+        const resultado = Joi.validate(objetoValidacion,esquemaValidacionNumero);
+
+        if (resultado.error) {
+            console.log('Resultado: ', resultado);
+        } else {
+            console.log('Numero valido');
+        }
+
+        const cookieSegura = request.signedCookies.fechaServidor;
+        if (cookieSegura) {
+            console.log('Cookie segura');
+        } else {
+            console.log('No es valida esta cookie');
+        }
+
+        if(cookies.micookie) {
+
+            const horaFechaServidor = new Date();
+            const minutos = horaFechaServidor.getMinutes();
+            horaFechaServidor.setMinutes(minutos + 1);
+
+            response.cookie(
+                'fechaServidor',      // NOMBRE (key)
+                new Date().getTime(),  // VALOR  (value)
+                {    // OPCIONES
+                    // expires: horaFechaServidor
+                    signed: true
+                });
+            return response.send('ok');
+        } else {
+            return response.send(':(');
+        }
     }
 }
-
-//un json no es lo mismo que un objeto javascript
-const json = [{
-    "nombre":"Edgar",
-    "apellido":"Guaman",
-    "edad":23,
-    "sueldo":46.54,
-    "casado": false,
-    "hijos": null,
-    "mascotas":["firulais", 1, 1.34, false, null, {"nombre":"pechirojo"}]
-}]
-
-let objeto:any = {
-  propiedad:'valor',
-  propiedadDos:'valor2'
-}
-
-objeto.propiedad //valor
-objeto.propiedadDos //valor2
-
-//Agregar propiedades a un objeto
-objeto.propiedadTres = 'valor3';
-objeto['propiedadTres'] = 'valor 3';
-delete objeto.propiedadTres;
-objeto.propiedadTres = undefined;
-
-
-

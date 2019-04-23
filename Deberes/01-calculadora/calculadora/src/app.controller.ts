@@ -68,16 +68,5 @@ export class AppController {
     else{
       return response.status(400).send({mensaje: 'Error en los parámetros de la division', error:400})
     }
-
-
   }
-
-
-
-
-
-
-
-
-
 }
