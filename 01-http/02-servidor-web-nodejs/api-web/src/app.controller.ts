@@ -7,8 +7,6 @@ import * as Joi from '@hapi/joi';
 @Controller('/api')
 export class AppController {
   constructor(private readonly appService: AppService) {}
-
-
 //@Controller(segmentoAccion)
 
     /*Segmento inicial : /api
@@ -146,8 +144,14 @@ export class AppController {
 
     @Get('inicio')
     inicio(@Response() res){
-        return res.render('inicio');
+        return res.render('inicio',{estaVivo:true});
     }
+
+    @Get('peliculas')
+    peliculas(@Response() res){
+        return res.render('peliculas/inicio',{});
+    }
+
 }
 /*
 function holaMundo(){
@@ -162,66 +166,6 @@ function suma(a,b) {
 const respuestaSuma = suma(3,5); //8
 console.log('Respuesta suma:',respuestaSuma);
 */
-
-//Condicionales
-//Truty -> true
-//Falsy-> false
-/*
-if(true){ //Truty
-    console.log('Verdadero');
-}else{
-    console.log('Falso');
-}
-
-if(false){ //Falsy
-    console.log('Verdadero');
-}else{
-    console.log('Falso');
-}
-
-if(""){ //Falsy
-    console.log('Verdadero ""');
-}else{
-    console.log('Falso ""');
-}
-
-if("a"){ //Truty
-    console.log('Verdadero ""');
-}else{
-    console.log('Falso ""');
-}
-if(0){ //Falsy
-    console.log('Verdadero ""');
-}else{
-    console.log('Falso ""');
-}
-
-if("0"){ //Truty
-    console.log('Verdadero ""');
-}else{
-    console.log('Falso ""');
-}
-if(1){ //Truty
-    console.log('Verdadero ""');
-}else{
-    console.log('Falso ""');
-}
-if(-1){ //Truty
-    console.log('Verdadero ""');
-}else{
-    console.log('Falso ""');
-}
-if(null){ //Falsy
-    console.log('Verdadero ""');
-}else{
-    console.log('Falso ""');
-}
-if({}){
-    console.log('Verdadero ""');
-}else {
-    console.log('Falso ""');
-}*/
-//Operadores de Arreglos en JS
 
 const arreglo = [function (){return '0'},1,true,null]
 

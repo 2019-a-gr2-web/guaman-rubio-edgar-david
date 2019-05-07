@@ -11,6 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const path_1 = require("path");
+const express = require("express");
 const cookieParser = require('cookie-parser');
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -18,6 +19,7 @@ function bootstrap() {
         app.use(cookieParser());
         app.setViewEngine('ejs');
         app.setBaseViewsDir(path_1.join(__dirname, '..', 'views'));
+        app.use(express.static('publico'));
         yield app.listen(3000);
     });
 }
