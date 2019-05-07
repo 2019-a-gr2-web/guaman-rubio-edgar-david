@@ -1,11 +1,20 @@
-<% const nombre = 'David'; //codigo JS  %>
+<% const nombre = 'Edgar';  // codigo JS %>
 <%= nombre %>
 <% const arreglo = [1,2,3,4,5]; %>
-<%= arreglo %>
-<% const objeto = {nombre:'Adrian'}; %>
+<% const objeto = {nombre:'David'}; %>
 <%= objeto %>
-<%= objeto.nombre %>
 
-<%arreglo.forEach( %>
-<% (valorActual)=>{ %>
-<% }) %>
+<% arreglo.forEach((valorActual)=>{ %>
+    <p> Numero: <%= valorActual %> </p>
+<% })%>
+
+<ol>
+    <% arreglo.forEach((valorActual)=>{ %>
+        <li> Numero: <%= valorActual %> </li>
+    <% })%>
+</ol>
+<% if(estaVivo) { %>
+    <h1>ESTA VIVO!!!</h1>
+<%}else{%>
+    <h1>Se murió</h1>
+<% } %>

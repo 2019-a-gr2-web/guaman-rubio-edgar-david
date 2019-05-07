@@ -112,7 +112,10 @@ let AppController = class AppController {
         }
     }
     inicio(res) {
-        return res.render('inicio');
+        return res.render('inicio', { estaVivo: true });
+    }
+    peliculas(res) {
+        return res.render('peliculas/inicio', {});
     }
 };
 __decorate([
@@ -183,6 +186,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "inicio", null);
+__decorate([
+    common_1.Get('peliculas'),
+    __param(0, common_1.Response()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "peliculas", null);
 AppController = __decorate([
     common_1.Controller('/api'),
     __metadata("design:paramtypes", [app_service_1.AppService])
