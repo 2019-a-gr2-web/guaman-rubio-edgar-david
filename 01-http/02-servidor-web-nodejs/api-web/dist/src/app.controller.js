@@ -117,6 +117,9 @@ let AppController = class AppController {
     peliculas(res) {
         return res.render('peliculas/inicio', {});
     }
+    estilos(res) {
+        return res.render('peliculas/estilos', {});
+    }
 };
 __decorate([
     common_1.Get('/hello-world'),
@@ -193,6 +196,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "peliculas", null);
+__decorate([
+    common_1.Get('estilos'),
+    __param(0, common_1.Response()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "estilos", null);
 AppController = __decorate([
     common_1.Controller('/api'),
     __metadata("design:paramtypes", [app_service_1.AppService])

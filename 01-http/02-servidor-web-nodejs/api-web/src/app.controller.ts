@@ -142,14 +142,19 @@ export class AppController {
         }
     }
 
-    @Get('inicio')
+    @Get('inicio') //endpoint
     inicio(@Response() res){
         return res.render('inicio',{estaVivo:true});
     }
 
-    @Get('peliculas')
+    @Get('peliculas') //endpoint
     peliculas(@Response() res){
         return res.render('peliculas/inicio',{});
+    }
+
+    @Get('estilos') //endpoint
+    estilos(@Response() res){
+        return res.render('peliculas/estilos',{});
     }
 
 }
