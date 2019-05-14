@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Estilos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
         /*.css*/
@@ -14,12 +15,11 @@
         /*Selector de etiqueta*/
         h1{
             color: #feff3b;
-            background-color: #ff4b65;
         }
 
         h2,div{
             color: #577dff;
-            background-color: #7eff66;
+            background-color: rgba(207, 14, 40, 0.94);
         }
         
         p.verde{
@@ -28,7 +28,7 @@
 
         /*Selector por ID*/
         #adios {
-            color: #000;
+            color: #b6000d;
             background-color: antiquewhite;
         }
 
@@ -45,6 +45,23 @@
             color:blue;
         }
 
+        modelo-cajas{
+            margin: 100px;
+            border-color: brown;
+            border-style: solid;
+            border-width: 10px;
+            border-right-width: 0px;
+            padding: 10px;
+        }
+        .separador{
+            margin-top: 200px;
+            margin-bottom: 200px;
+        }
+        .tb-row{
+            width:100%;
+            border-color: #1726eb;
+            margin-bottom: 20px;
+        }
 
 
     </style>
@@ -52,6 +69,64 @@
 
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <!--bootstrap divide la página web en 12 columnas
+        podemos dividirlas en 5 y 7, 6 y 6, etc.-->
+        <!--el punto significa div
+        Gracias a EMMET-->
+
+        <div class="col-sm-2">
+            <h1>LOGO</h1>
+        </div>
+        <div class="col-sm-7">
+            <h1>MENU</h1>
+        </div>
+        <div class="col-sm-3">
+            <H1>LOGIN</H1>
+
+        <!--<div class="col-sm-12">-->
+            <!--<h1>COLUMNA 12</h1>-->
+        <!--</div>-->
+        <!--<div class="col-sm-6">-->
+            <!--<h1>COLUMNA 6</h1>-->
+        <!--</div>-->
+        <!--<div class="col-sm-6">-->
+            <!--<h1>COLUMNA 6</h1>-->
+        <!--</div>-->
+    </div>
+</div>
+    <div class="row">
+        <div class="col-sm-3">
+            <h1>Genero de películas</h1>
+            <!--table>tr*2-->
+            <table>
+                <!--td*3-->
+                <tr class="tb-row">
+                    <td>1</td>
+                    <td>Accion</td>
+                    <td>824</td>
+                </tr>
+                <tr class="tb-row">
+                    <td>2</td>
+                    <td>Animacion</td>
+                    <td>356</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-9">
+            <h1>Peliculas online</h1>
+            <p>Pelisplus.co es un sitio ideal para ver películas y series online. Nuestro sistema se preocupa por tener lo último del cine en calidad full HD.
+                Para ver una película o serie de televisión puedes usar el buscador en la parte superior o seguir uno de los enlaces de genero o año de estreno en la parte izquierda del sitio, luego el enlace te llevará al reproductor donde solo tienes que dar click en el boton de play. Te invitamos a compartir este genial sitio con tus amigos y familiares.</p>
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="separador"></div>
     <h1>Hola</h1>
     <h1 id="adios" class="verde">Adios</h1>
     <h1 class="verde" style="color:white";background-color="black";>Bienvenidos</h1>
@@ -61,6 +136,7 @@
     <p class="morado azul verde">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum pariatur quaerat ratione sint.
         Dicta et impedit officia optio. At beatae consequuntur cupiditate distinctio explicabo iusto
         necessitatibus quasi rem vitae voluptates?</p>
+
 
 </body>
 </html>
