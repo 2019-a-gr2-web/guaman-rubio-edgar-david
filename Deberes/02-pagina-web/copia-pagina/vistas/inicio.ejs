@@ -2,81 +2,797 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="C:/Users/Edgar/Documents/GitHub/guaman-rubio-edgar-david/Deberes/02-pagina-web/copia-pagina/recursos/imagenes/0.ico">
+    <link rel="icon" href="//localhost:3000/imagenes/0.ico">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Anime Online HD ── AnimeFLV</title>
 
-    <title>Peliculas - Lista</title>
+    <style>
+        .color-negro{
+            background-color: #000;
+            color: darkgrey;
+            border: 0;
+        }
+
+        .separacion-margenes{
+            margin: 30px;
+            padding: 15px;
+        }
+
+        .ancho-largo{
+            height: 80px;
+        }
+
+        .separacion-inicio{
+            margin-left: 60px;
+            margin-right: 10px;
+        }
+
+        .ancho-imagen{
+            border: 0;
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .opciones-imagenes{
+            margin-top: 10px;
+            margin-right: 20px;
+            margin-left: 20px;
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .opcion-konosuba{
+            backface-visibility: hidden;
+            margin-top: 10px;
+            margin-left: 20px;
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .opciones-menu{
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 10px 15px;
+        }
+
+        .opcion-buscar{
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 0;
+            padding: 10px;
+            padding-right: 0;
+        }
+
+        .color-buscar{
+            color: white;
+        }
+
+        .form-inline .form-control {
+            display: inline-block;
+            width: 200px;
+            vertical-align: middle;
+        }
+
+        .opcion-login{
+            margin-top: 18px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .letragris{
+            display: block;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 80px;
+            padding: 0 15px;
+            opacity: .5;
+        }
+
+        .letra-login{
+            border-radius: 5px;
+            background-color: rgba(0,0,0,.2);
+            width: 100%;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            font-size: 12px;
+        }
+
+        .circle{
+            border-radius: 50%;
+            margin: 0.15em;
+            font-size: 3em;
+        }
+
+        .fa-facebook{
+            background: #3B5998;
+            color: #FFFFFF;
+            margin-top: 0;
+            margin-left: 20px;
+        }
+
+        .slogan{
+            margin-top: 20px;
+            box-sizing: border-box;
+            margin-right: 40px;
+            margin-left: 107px;
+            padding: 0;
+            width: 85%;
+            height: 50%;
+            text-align: center;
+            color: #cfd8dc;
+            letter-spacing: -1px;
+            background-color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border-bottom: 3px solid #01bcf3;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 25px rgba(0,0,0,.5);
+        }
+
+        .contenedor{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .imagenes-episodio{
+            width:190px;
+            height:140px;
+        }
+
+        .imagenes-estreno{
+            width: 190px;
+            height: 280px;
+        }
+
+        .separacion-lista-capitulos{
+            margin-left: 95px;
+        }
+
+        .separacion-capitulos{
+            margin-left:0;
+        }
+
+
+
+    </style>
+
 </head>
+
 <body>
-<!-- Header -->
-<h1>Título 1</h1>
-<h2>Título 2</h2>
-<h3>Título 3</h3>
-<h4>Título 4</h4>
-<h5>Título 5</h5>
-<h6>Título 6</h6>
+<div class = "contenedor">
+    <div class = "barra-navegacion">
+
+        <nav class="ancho-largo navbar navbar-expand-lg bg-dark">
+            <a class="separacion-margenes navbar-brand" href="#"></a>
+            <img src="http://localhost:3000/imagenes/1.jpg" class="ancho-imagen">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="separacion-inicio letragris nav-link" href="#">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link letragris opciones-menu" href="#">DIRECTORIO ANIME</a>
+                    </li>
+                    <li class="nav-item opciones-imagenes ancho-imagen">
+                        <a class="nav-link" href="#"></a>
+                        <img src="http://localhost:3000/imagenes/2.jpg">
+                    </li>
+                    <li class="nav-item opcion-konosuba ancho-imagen">
+                        <a class="nav-link" href="#"></a>
+                        <img src="http://localhost:3000/imagenes/3.jpg">
+                    </li>
+                    <li class="opcion-buscar">
+                        <form class="form-inline">
+                            <input class="color-negro form-control py-2 rounded-pill mr-1 pr-5" type="search" value="Buscar..." id="example-search-input">
+                            <span class="input-group-append">
+                            <button class="color-buscar btn rounded-pill border-0 ml-n5" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            </span>
+                        </form>
+                    </li>
+                    <li class="nav-item opcion-login">
+                        <a class="color-buscar letra-login nav-link opciones-menu" href="#">LOGIN</a>
+                    </li>
+                    <li class="nav-item opcion-login">
+                        <i class="fab fa-facebook circle"></i>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+    <div class = "contenido-medio">
+        <div class="slogan">
+            <h1><strong>AnimeFLV</strong> tu fuente de anime online gratis en HD</h1>
+        </div>
+        <div class="row separacion-lista-capitulos">
+            <div class="col-sm-3">
+                <!--table>tr*2-->
+                <table>
+                    <!--td*3-->
+                    <tr class="tb-row">
+                        <td></td>
+                        <td>Anuncios FLV</td>
+                        <td><i class="fas fa-gift"></i></td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td></td>
+                        <td>EN EMISIÓN</td>
+                        <td><i class="fas fa-play"></i></td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>One Piece</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Detective Conan</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Pokemon Sun & Moon</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Boruto: Naruto Next Generations</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Furusato Meguri Nippon no</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>YuGiOh! VRAINS</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Dragon Ball Super Lation</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Black Clover (TV)</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Gegege No Kitarou(2018)</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Jojo no Kimyou na Boukina</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Fairy Tail: Final Series</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Karakuri Circus</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Tate no Yuusha no Nariagari</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Dororo</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Diamond no Ace:Act II</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Cinderella Girls Gekijou Climax Season</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Kono Yo no Hate de Koigatorou</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Bakumatsu: Crisis</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Fruits Basket(2019)</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Senryuu Shojo</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Hitoribochi no Seikatsu</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Midara na Ao-chan wa benkyo</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Joshikausei</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Chou Kadou Girls amazing</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Nobunaga-sensei no Omiouji</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Kimetsu no Yaiba</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Bokutachi wa Benkyou ga dekinai</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Mix: Meisei Story</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Kono Oto Tomare!</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Mayonaka no Occult koumuin</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Fairy Gone</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Hachigatsu no Cinderella nine</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Nande Koko ni Sensei ga</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Shoumetsu Toshi</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Gunjou no Magmel</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Namu Amida Butsu! Rendai Utena</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Yatogame-chan Kansatsu nikki</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>RobiHachi</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Isakai Quartet</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>One Punch Man 2nd Season</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Strike Witches: 501 butta hashin</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Kenja no Mago</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Sewayaki Kitsune no Senkosan</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Sarazanmai</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Bongou Stray Dogs 3rd Season</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>King of Prism: Shiny seven Start</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Carole and Tuesday</td>
+                        <td>Anime</td>
+                    </tr>
+                    <tr class="tb-row">
+                        <td><i class="far fa-play-circle"></i></td>
+                        <td>Shingeki no Kyojin Season 3 part 2</td>
+                        <td>Anime</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col-sm-2 separacion-capitulos">
+                    <div class="col-sm-3">
+                        <dl>
+                            <dt>
+                                <a href="" class="far fa-play-circle">
+                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/4.jpg" alt="Gunjou no Magmel"></span>
+                                    <span class="Capi">Episodio 7</span>
+                                    <strong class="Title">Gunjou no Magmel</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="" class="far fa-play-circle">
+                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/8.jpg" alt="Shingeky no Kyojin"></span>
+                                    <span class="Capi">Episodio 4</span>
+                                    <strong class="Title">Shingeky no Kyojin</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="" class="far fa-play-circle">
+                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/12.jpg" alt="Boruto Naruto Next Generations"></span>
+                                    <span class="Capi">Episodio 107</span>
+                                    <strong class="Title">Boruto Naruto Next Generations</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="" class="far fa-play-circle">
+                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/16.jpg" alt="Kono Oto Tomare"></span>
+                                    <span class="Capi">Episodio 7</span>
+                                    <strong class="Title">Kono Oto Tomare</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="" class="far fa-play-circle">
+                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/20.jpg" alt="Joshikausei"></span>
+                                    <span class="Capi">Episodio 7</span>
+                                    <strong class="Title">Joshikausei</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="">
+                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/24.jpg" alt="Koutetsujou no Kabaneri"></span>
+                                    <span class="Capi">Película</span>
+                                    <strong class="Title">Koutetsujou no Kabaneri</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="">
+                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/28.jpg" alt="Bongou Stray Dogs 3rd Season"></span>
+                                    <span class="Capi">Estreno</span>
+                                    <strong class="Title">Bongou Stray Dogs 3rd Season</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="">
+                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/32.jpg" alt="Strike Witches: 501 Butai Hasshin Shimasu!"></span>
+                                    <span class="Capi">Estreno</span>
+                                    <strong class="Title">Strike Witches: 501 Butai Hasshin Shimasu!</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="">
+                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/36.jpg" alt="Yatogame-chan Kansatsu Nikki"></span>
+                                    <span class="Capi">Estreno</span>
+                                    <strong class="Title">Yatogame-chan Kansatsu Nikki</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="">
+                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/40.jpg" alt="Nande Koko ni Sensei ga!?"></span>
+                                    <span class="Capi">Estreno</span>
+                                    <strong class="Title">Nande Koko ni Sensei ga!?</strong>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a href="">
+                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/44.jpg" alt="Kono Oto Tomare!"></span>
+                                    <span class="Capi">Estreno</span>
+                                    <strong class="Title">Kono Oto Tomare!</strong>
+                                </a>
+                            </dt>
+
+                        </dl>
+                    </div>
+                </div>
+            <div class="col-sm-2">
+                <div class="col-sm-3">
+                    <dl>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="imagenes-episodio Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/5.jpg" alt="Fairy Gone"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Fairy Gone</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/9.jpg" alt="Hachigatsu No Cinderella Nine"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Hachigatsu No Cinderella Nine</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/13.jpg" alt="Gegege no Kitarou (2018)"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Gegege no Kitarou (2018)</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/17.jpg" alt="Bokutachi wa Benkyou ga"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Bokutachi wa Benkyou ga</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/21.jpg" alt="Chou Kadou Girl Amazing Stranger"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Chou Kadou Girl Amazing Stranger</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="">
+                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/25.jpg" alt="Shingeky no Kyojin Season 3 Part 2"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Shingeky no Kyojin Season 3 Part 2</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="">
+                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/29.jpg" alt="Sarazanmai"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Sarazanmai</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="">
+                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/33.jpg" alt="One Punch Man 2nd Season"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">One Punch Man 2nd Season</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="">
+                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/37.jpg" alt="Namu Amida Butsu!: Rendai Utena"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Namu Amida Butsu!: Rendai Utena</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="">
+                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/41.jpg" alt="Hachigatsu no Cinderella Nine"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Hachigatsu no Cinderella Nine</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="">
+                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/45.jpg" alt="Mix: Meisei Story"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Mix: Meisei Story</strong>
+                            </a>
+                        </dt>
+
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="col-sm-3">
+                    <dl>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/6.jpg" alt="Pokemon Sun & Moon"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Pokemon Sun & Moon</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/10.jpg" alt="Nande Koko ni sensei ga"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Nande Koko ni sensei ga</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/14.jpg" alt="One Piece"></span>
+                                <span class="Capi">Episodio 885</span>
+                                <strong class="Title">One Piece</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/18.jpg" alt="Kimetsu no Yaiba"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Kimetsu no Yaiba</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/22.jpg" alt="Mix: Meisei Story"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Mix: Meisei Story</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="">
+                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/45.jpg" alt="King of Prism:Shiny Seven Stars"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">King of Prism:Shiny Seven Stars</strong>
+                            </a>
+                        </dt>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="col-sm-3">
+                    <dl>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/7.jpg" alt="Shoumetsu Toshi"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Shoumetsu Toshi</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/11.jpg" alt="Mayonaka no occult"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Mayonaka no occult</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/15.jpg" alt="Fairy Tail: Final Series"></span>
+                                <span class="Capi">Episodio 32</span>
+                                <strong class="Title">Fairy Tail: Final Series</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/19.jpg" alt="Nobunaga Sensei no asanazuma"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Nobunaga Sensei no asanazuma</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/23.jpg" alt="Hitoribochi no seikatsu"></span>
+                                <span class="Capi">Episodio 7</span>
+                                <strong class="Title">Hitoribochi no seikatsu</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/26.jpg" alt="Carole & Tuesday"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Carole & Tuesday</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/30.jpg" alt="Sewayaki Kitsune no Senko-san"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Sewayaki Kitsune no Senko-san</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/34.jpg" alt="Isekai Quartet"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Isekai Quartet</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/38.jpg" alt="Gunjou no Magmel"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Gunjou no Magmel</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/42.jpg" alt="Fairy Gone"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Fairy Gone</strong>
+                            </a>
+                        </dt>
+                        <dt>
+                            <a href="" class="far fa-play-circle">
+                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/46.jpg" alt="Bokutachi wa Benkyou"></span>
+                                <span class="Capi">Estreno</span>
+                                <strong class="Title">Fairy Gone</strong>
+                            </a>
+                        </dt>
+                    </dl>
+                </div>
+            </div>
+        </div>
 
 
 
-<ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-</ul>
-<ol>
-    <li>a</li>
-    <li>b</li>
-    <li>c</li>
-</ol>
 
-<a href="https://www.google.com.ec/" target="_blank">Google externo (blank)</a>
-<p></p>
-<a href="https://www.google.com.ec/" target="_self">Google interno (self)</a>
-<p></p>
-<img src="C:/Users/Edgar/Documents/GitHub/guaman-rubio-edgar-david/Deberes/02-pagina-web/copia-pagina/recursos/imagenes/0.ico"" alt="Únete a AnimeFLV">
-<p></p>
-<form action="Formulario">
-    <label for="nombre">Nombre</label>
-    <input id="nombre" type="text">
-</form>
+    </div>
 
-<label for="fuera">Fuera formulario</label>
-<input id="fuera" type="text">
+    <div class = "footer">
 
-<button>Enviar datos Fuera</button>
-<br>
-<br>
-<br>
+    </div>
 
-<style>
-    table, td, th{
-        border: solid black 1px;
-
-    }
-</style>
-<table>
-    <!-- Table row-->
-    <tr>
-        <!-- Table header-->
-        <th>Nombre</th>
-        <th>Apellidos</th>
-    </tr>
-    <tr>
-        <!-- Table detail-->
-        <td>Edgar</td>
-        <td>Guaman</td>
-    </tr>
-
-</table>
-
-
-
-<br>
-<br>
-<br>
-<br>
-
+</div>
 </body>
 </html>

@@ -13,34 +13,26 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
-const app_service_1 = require("./app.service");
-let AppController = class AppController {
-    constructor(appService) {
-        this.appService = appService;
+const tragos_service_1 = require("./tragos.service");
+let TragosController = class TragosController {
+    constructor(_tragosService) {
+        this._tragosService = _tragosService;
     }
-    getHello() {
-        return this.appService.getHello();
-    }
-    inicio(res) {
-        return res.render('inicio', {});
+    listarTragos(res) {
+        const arregloTragos = this._tragosService.bddTragos;
+        res.render('tragos/lista-tragos', { arregloTragos: arregloTragos });
     }
 };
 __decorate([
-    common_1.Get(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getHello", null);
-__decorate([
-    common_1.Get('inicio'),
+    common_1.Get('lista'),
     __param(0, common_1.Response()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], AppController.prototype, "inicio", null);
-AppController = __decorate([
-    common_1.Controller('/deber'),
-    __metadata("design:paramtypes", [app_service_1.AppService])
-], AppController);
-exports.AppController = AppController;
-//# sourceMappingURL=app.controller.js.map
+], TragosController.prototype, "listarTragos", null);
+TragosController = __decorate([
+    common_1.Controller('/api/traguito'),
+    __metadata("design:paramtypes", [tragos_service_1.TragosService])
+], TragosController);
+exports.TragosController = TragosController;
+//# sourceMappingURL=tragos.controller.js.map
