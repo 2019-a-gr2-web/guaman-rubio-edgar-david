@@ -130,16 +130,44 @@
             margin-left: 107px;
             padding: 0;
             width: 85%;
-            height: 50%;
+            height: 40%;
             text-align: center;
             color: #cfd8dc;
             letter-spacing: -1px;
             background-color: black;
-            padding: 10px 20px;
             border-radius: 5px;
             border-bottom: 3px solid #01bcf3;
             margin-bottom: 20px;
             box-shadow: inset 0 0 25px rgba(0,0,0,.5);
+        }
+
+        .anuncio{
+            box-sizing: border-box;
+            text-align: left;
+            color: black;
+            letter-spacing: -1px;
+            background-color: white;
+            padding-left: 10px;
+            border-radius: 5px;
+            border-bottom: 3px solid;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 25px white;
+        }
+
+        .tabla{
+            box-sizing: border-box;
+            text-align: left;
+            color: black;
+            background-color: white;
+            padding-left: 10px;
+            border-radius: 5px;
+            border-bottom: 3px solid;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 25px white;
+        }
+
+        .color-fondo{
+            background-color: rgba(226, 221, 211, 0.63);
         }
 
         .contenedor{
@@ -149,7 +177,7 @@
         }
 
         .imagenes-episodio{
-            width:190px;
+            width:200px;
             height:140px;
         }
 
@@ -165,6 +193,57 @@
         .separacion-capitulos{
             margin-left:0;
         }
+
+        .ultimos-episodios{
+            box-sizing: border-box;
+            text-align: left;
+            color: black;
+            letter-spacing: -1px;
+            background-color: rgba(226, 221, 211, 0.63);
+            padding-left: 5px;
+            border-radius: 5px;
+            margin-left: 10px;
+            box-shadow: inset 0 0 25px white;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        /* Bottom right text */
+        .texto-uno {
+            position: absolute;
+            bottom: 0px;
+            right: 303px;
+            left: 15px;
+            background-color: black;
+            color: white;
+            padding-right: 20px;
+        }
+
+        .texto-capitulo {
+            position: absolute;
+            bottom: 0px;
+            right: 303px;
+            left: 15px;
+            background-color: black;
+            color: white;
+            padding-right: 20px;
+        }
+
+        .texto-estreno {
+            position: absolute;
+            bottom: 0px;
+            right: 313px;
+            left: 16px;
+            background-color: black;
+            color: white;
+            padding-right: 20px;
+        }
+
+
+
+
 
 
 
@@ -221,25 +300,23 @@
             </div>
         </nav>
     </div>
-    <div class = "contenido-medio">
+    <div class="color-fondo contenido-medio">
         <div class="slogan">
-            <h1><strong>AnimeFLV</strong> tu fuente de anime online gratis en HD</h1>
+            <h3><strong>AnimeFLV</strong> tu fuente de anime online gratis en HD</h3>
         </div>
         <div class="row separacion-lista-capitulos">
-            <div class="col-sm-3">
-                <!--table>tr*2-->
-                <table>
-                    <!--td*3-->
-                    <tr class="tb-row">
-                        <td></td>
-                        <td>Anuncios FLV</td>
-                        <td><i class="fas fa-gift"></i></td>
-                    </tr>
-                    <tr class="tb-row">
-                        <td></td>
-                        <td>EN EMISIÓN</td>
-                        <td><i class="fas fa-play"></i></td>
-                    </tr>
+            <div class="sidebar">
+                <div class="anuncio form-inline">
+                    <h5 style="padding-right: 180px">Anuncios FLV</h5>
+                    <a class="fas fa-gift"></a>
+                </div>
+
+                <div class="anuncio form-inline">
+                    <h5 style="padding-right: 190px">EN EMISIÓN</h5>
+                    <a class="fas fa-play"></a>
+                </div>
+
+                <table class="tabla">
                     <tr class="tb-row">
                         <td><i class="far fa-play-circle"></i></td>
                         <td>One Piece</td>
@@ -480,313 +557,145 @@
                         <td>Shingeki no Kyojin Season 3 part 2</td>
                         <td>Anime</td>
                     </tr>
-
                 </table>
             </div>
-            <div class="col-sm-2 separacion-capitulos">
-                    <div class="col-sm-3">
-                        <dl>
-                            <dt>
-                                <a href="" class="far fa-play-circle">
-                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/4.jpg" alt="Gunjou no Magmel"></span>
-                                    <span class="Capi">Episodio 7</span>
-                                    <strong class="Title">Gunjou no Magmel</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="" class="far fa-play-circle">
-                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/8.jpg" alt="Shingeky no Kyojin"></span>
-                                    <span class="Capi">Episodio 4</span>
-                                    <strong class="Title">Shingeky no Kyojin</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="" class="far fa-play-circle">
-                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/12.jpg" alt="Boruto Naruto Next Generations"></span>
-                                    <span class="Capi">Episodio 107</span>
-                                    <strong class="Title">Boruto Naruto Next Generations</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="" class="far fa-play-circle">
-                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/16.jpg" alt="Kono Oto Tomare"></span>
-                                    <span class="Capi">Episodio 7</span>
-                                    <strong class="Title">Kono Oto Tomare</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="" class="far fa-play-circle">
-                                    <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/20.jpg" alt="Joshikausei"></span>
-                                    <span class="Capi">Episodio 7</span>
-                                    <strong class="Title">Joshikausei</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="">
-                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/24.jpg" alt="Koutetsujou no Kabaneri"></span>
-                                    <span class="Capi">Película</span>
-                                    <strong class="Title">Koutetsujou no Kabaneri</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="">
-                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/28.jpg" alt="Bongou Stray Dogs 3rd Season"></span>
-                                    <span class="Capi">Estreno</span>
-                                    <strong class="Title">Bongou Stray Dogs 3rd Season</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="">
-                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/32.jpg" alt="Strike Witches: 501 Butai Hasshin Shimasu!"></span>
-                                    <span class="Capi">Estreno</span>
-                                    <strong class="Title">Strike Witches: 501 Butai Hasshin Shimasu!</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="">
-                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/36.jpg" alt="Yatogame-chan Kansatsu Nikki"></span>
-                                    <span class="Capi">Estreno</span>
-                                    <strong class="Title">Yatogame-chan Kansatsu Nikki</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="">
-                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/40.jpg" alt="Nande Koko ni Sensei ga!?"></span>
-                                    <span class="Capi">Estreno</span>
-                                    <strong class="Title">Nande Koko ni Sensei ga!?</strong>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a href="">
-                                    <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/44.jpg" alt="Kono Oto Tomare!"></span>
-                                    <span class="Capi">Estreno</span>
-                                    <strong class="Title">Kono Oto Tomare!</strong>
-                                </a>
-                            </dt>
 
-                        </dl>
-                    </div>
+            <div class="separacion-capitulos">
+                <div class="ultimos-episodios form-inline">
+                    <h3 style="padding-right: 190px">Ultimos episodios</h3>
                 </div>
-            <div class="col-sm-2">
-                <div class="col-sm-3">
+                <div class="row-sm-3">
                     <dl>
                         <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="imagenes-episodio Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/5.jpg" alt="Fairy Gone"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Fairy Gone</strong>
-                            </a>
+                            <div class="container">
+                                <img class="imagenes-episodio" src="http://localhost:3000/imagenes/4.jpg" alt="Magmel">
+                                <div class="texto-capitulo">
+                                    <h8>Episodio 7</h8>
+                                    <h8>Ganjou no Magmel</h8>
+                                </div>
+                            </div>
                         </dt>
+                    </dl>
+                    <dl>
                         <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/9.jpg" alt="Hachigatsu No Cinderella Nine"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Hachigatsu No Cinderella Nine</strong>
-                            </a>
+                            <div class="container">
+                                <img class="imagenes-episodio" src="http://localhost:3000/imagenes/8.jpg" alt="Attack">
+                                <div class="texto-capitulo">
+                                    <h8>Episodio 4</h8>
+                                    <h8>Shingeky no Kyojin</h8>
+                                </div>
+                            </div>
                         </dt>
+                    </dl>
+                    <dl>
                         <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/13.jpg" alt="Gegege no Kitarou (2018)"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Gegege no Kitarou (2018)</strong>
-                            </a>
+                            <div class="container">
+                                <img class="imagenes-episodio" src="http://localhost:3000/imagenes/12.jpg" alt="Boruto">
+                                <div class="texto-capitulo">
+                                    <h8>Episodio 107</h8>
+                                    <h8>Boruto Naruto Next</h8>
+                                </div>
+                            </div>
                         </dt>
+                    </dl>
+                    <dl>
                         <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/17.jpg" alt="Bokutachi wa Benkyou ga"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Bokutachi wa Benkyou ga</strong>
-                            </a>
+                            <div class="container">
+                                <img class="imagenes-episodio" src="http://localhost:3000/imagenes/16.jpg" alt="Kono">
+                                <div class="texto-capitulo">
+                                    <h8>Episodio 7</h8>
+                                    <h8>Kono Oto Tomare!</h8>
+                                </div>
+                            </div>
                         </dt>
+                    </dl>
+                    <dl>
                         <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/21.jpg" alt="Chou Kadou Girl Amazing Stranger"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Chou Kadou Girl Amazing Stranger</strong>
-                            </a>
+                            <div class="container">
+                                <img class="imagenes-episodio" src="http://localhost:3000/imagenes/20.jpg" alt="Joshi">
+                                <div class="texto-capitulo">
+                                    <h8>Episodio 7</h8>
+                                    <h8>Joshikausei</h8>
+                                </div>
+                            </div>
                         </dt>
-                        <dt>
-                            <a href="">
-                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/25.jpg" alt="Shingeky no Kyojin Season 3 Part 2"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Shingeky no Kyojin Season 3 Part 2</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="">
-                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/29.jpg" alt="Sarazanmai"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Sarazanmai</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="">
-                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/33.jpg" alt="One Punch Man 2nd Season"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">One Punch Man 2nd Season</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="">
-                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/37.jpg" alt="Namu Amida Butsu!: Rendai Utena"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Namu Amida Butsu!: Rendai Utena</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="">
-                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/41.jpg" alt="Hachigatsu no Cinderella Nine"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Hachigatsu no Cinderella Nine</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="">
-                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/45.jpg" alt="Mix: Meisei Story"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Mix: Meisei Story</strong>
-                            </a>
-                        </dt>
+                    </dl>
+                </div>
 
-                    </dl>
+                <div class="ultimos-episodios">
+                    <h3 style="padding-right: 190px">Ultimos animes agregados</h3>
                 </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="col-sm-3">
-                    <dl>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/6.jpg" alt="Pokemon Sun & Moon"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Pokemon Sun & Moon</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/10.jpg" alt="Nande Koko ni sensei ga"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Nande Koko ni sensei ga</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/14.jpg" alt="One Piece"></span>
-                                <span class="Capi">Episodio 885</span>
-                                <strong class="Title">One Piece</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/18.jpg" alt="Kimetsu no Yaiba"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Kimetsu no Yaiba</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/22.jpg" alt="Mix: Meisei Story"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Mix: Meisei Story</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="">
-                                <span class="Image"><img class="imagenes-estreno" src="http://localhost:3000/imagenes/45.jpg" alt="King of Prism:Shiny Seven Stars"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">King of Prism:Shiny Seven Stars</strong>
-                            </a>
-                        </dt>
-                    </dl>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="col-sm-3">
-                    <dl>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/7.jpg" alt="Shoumetsu Toshi"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Shoumetsu Toshi</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/11.jpg" alt="Mayonaka no occult"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Mayonaka no occult</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/15.jpg" alt="Fairy Tail: Final Series"></span>
-                                <span class="Capi">Episodio 32</span>
-                                <strong class="Title">Fairy Tail: Final Series</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/19.jpg" alt="Nobunaga Sensei no asanazuma"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Nobunaga Sensei no asanazuma</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/23.jpg" alt="Hitoribochi no seikatsu"></span>
-                                <span class="Capi">Episodio 7</span>
-                                <strong class="Title">Hitoribochi no seikatsu</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/26.jpg" alt="Carole & Tuesday"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Carole & Tuesday</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/30.jpg" alt="Sewayaki Kitsune no Senko-san"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Sewayaki Kitsune no Senko-san</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/34.jpg" alt="Isekai Quartet"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Isekai Quartet</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/38.jpg" alt="Gunjou no Magmel"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Gunjou no Magmel</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/42.jpg" alt="Fairy Gone"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Fairy Gone</strong>
-                            </a>
-                        </dt>
-                        <dt>
-                            <a href="" class="far fa-play-circle">
-                                <span class="Image"><img class="imagenes-episodio" src="http://localhost:3000/imagenes/46.jpg" alt="Bokutachi wa Benkyou"></span>
-                                <span class="Capi">Estreno</span>
-                                <strong class="Title">Fairy Gone</strong>
-                            </a>
-                        </dt>
-                    </dl>
-                </div>
+                <dl>
+                    <dt>
+                        <div class="container">
+                            <img class="imagenes-estreno" src="http://localhost:3000/imagenes/24.jpg" alt="Kabaneri">
+                            <div class="texto-estreno">
+                                <h8>Pelicula</h8>
+                                <h8>Koutetsujou no Kabaneri</h8>
+                            </div>
+                        </div>
+                    </dt>
+                </dl>
+                <dl>
+                    <dt>
+                        <div class="container">
+                            <img class="imagenes-estreno" src="http://localhost:3000/imagenes/28.jpg" alt="Stray">
+                            <div class="texto-estreno">
+                                <h8>Estreno</h8>
+                                <h8>Bongou Stray Dogs 3rd Season</h8>
+                            </div>
+                        </div>
+                    </dt>
+                </dl>
+                <dl>
+                    <dt>
+                        <div class="container">
+                            <img class="imagenes-estreno" src="http://localhost:3000/imagenes/32.jpg" alt="Strike">
+                            <div class="texto-estreno">
+                                <h8>Estreno</h8>
+                                <h8>Strike Witches: 501 Butai Hasshin Shimasu!</h8>
+                            </div>
+                        </div>
+                    </dt>
+                </dl>
+                <dl>
+                    <dt>
+                        <div class="container">
+                            <img class="imagenes-estreno" src="http://localhost:3000/imagenes/36.jpg" alt="Nikki">
+                            <div class="texto-estreno">
+                                <h8>Estreno</h8>
+                                <h8>Yatogame chan Kansatsu Nikki</h8>
+                            </div>
+                        </div>
+                    </dt>
+                </dl>
+                <dl>
+                    <dt>
+                        <div class="container">
+                            <img class="imagenes-estreno" src="http://localhost:3000/imagenes/40.jpg" alt="Nande">
+                            <div class="texto-estreno">
+                                <h8>Estreno</h8>
+                                <h8>Nande Koko ni Sensei ga</h8>
+                            </div>
+                        </div>
+                    </dt>
+                </dl>
+                <dl>
+                    <dt>
+                        <div class="container">
+                            <img class="imagenes-estreno" src="http://localhost:3000/imagenes/44.jpg" alt="KonoOto">
+                            <div class="texto-estreno">
+                                <h8>Estreno</h8>
+                                <h8>Kono Oto Tomare!</h8>
+                            </div>
+                        </div>
+                    </dt>
+                </dl>
+
+
+
             </div>
         </div>
-
-
-
-
     </div>
 
     <div class = "footer">
