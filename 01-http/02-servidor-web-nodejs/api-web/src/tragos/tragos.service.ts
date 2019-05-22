@@ -16,7 +16,6 @@ export class TragosService {
         };
         this.crear(traguito)
     }
-
     crear(nuevoTrago:Trago):Trago{
         nuevoTrago.id = this.recnum;
         this.recnum++;
@@ -39,7 +38,6 @@ export class TragosService {
 
         return this.bddTragos;
     }
-
     buscarPorNombre(nombre:string):Trago{
         return this.bddTragos.find((trago)=>{return trago.nombre.toUpperCase().includes(nombre.toUpperCase());
             }
