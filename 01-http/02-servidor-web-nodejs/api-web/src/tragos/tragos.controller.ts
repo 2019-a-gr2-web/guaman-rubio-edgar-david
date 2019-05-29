@@ -42,10 +42,13 @@ crearTragoPost(@Body() trago:Trago,@Res() res
     // console.log('Precio: ',trago,typeof precio);
 }
 
-@Post('eliminar')
-eliminar(@Body() trago:Trago){
-        trago.nombre
-
+    @Post('eliminar')
+    eliminarTrago(
+        @Body() id:number,
+        @Res() res
+    ){
+        this._tragosService.eliminarPorId(id);
+        res.redirect('/api/traguito/lista');
     }
 
 }

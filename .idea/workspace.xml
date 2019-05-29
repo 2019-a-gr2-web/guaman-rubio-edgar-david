@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/views/tragos/lista-tragos.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-67">
-              <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            <state relative-caret-position="221">
+              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -30,8 +30,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/views/tragos/crear-listar.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="510">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/interfaces/trago.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -39,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/tragos.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="647">
-              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="77">
+              <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
               <folding>
                 <element signature="e#0#74#0" expanded="true" />
               </folding>
@@ -51,7 +60,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/tragos.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
+            <state relative-caret-position="34">
               <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
@@ -101,14 +110,14 @@
         <option value="$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/tragos.module.ts" />
         <option value="$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/interfaces/trago.ts" />
         <option value="$PROJECT_DIR$/Deberes/02-pagina-web/copia-pagina/vistas/inicio.ejs" />
-        <option value="$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/tragos.service.ts" />
         <option value="$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/views/tragos/lista-tragos.ejs" />
         <option value="$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/views/tragos/crear-listar.ejs" />
+        <option value="$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/tragos.service.ts" />
         <option value="$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/tragos.controller.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-6" />
     <option name="width" value="978" />
     <option name="height" value="745" />
@@ -168,6 +177,16 @@
               <item name="01-http" type="462c0819:PsiDirectoryNode" />
               <item name="02-servidor-web-nodejs" type="462c0819:PsiDirectoryNode" />
               <item name="api-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tragos" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="guaman-rubio-edgar-david" type="b2602c69:ProjectViewProjectNode" />
+              <item name="guaman-rubio-edgar-david" type="462c0819:PsiDirectoryNode" />
+              <item name="01-http" type="462c0819:PsiDirectoryNode" />
+              <item name="02-servidor-web-nodejs" type="462c0819:PsiDirectoryNode" />
+              <item name="api-web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -199,7 +218,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="C:\Users\Edgar\Documents\GitHub\guaman-rubio-edgar-david\Deberes\02-pagina-web\copia-pagina\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -257,11 +276,13 @@
       <workItem from="1558527967366" duration="706000" />
       <workItem from="1558539805620" duration="3136000" />
       <workItem from="1558551828624" duration="6918000" />
+      <workItem from="1558894565522" duration="1522000" />
+      <workItem from="1559107532283" duration="149000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127331000" />
+    <option name="totallyTimeSpent" value="129002000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -273,9 +294,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="978" height="745" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498998" weight="0.5095745" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.24776785" />
       <window_info id="Structure" order="1" sideWeight="0.501002" side_tool="true" weight="0.18335684" />
       <window_info id="Favorites" order="2" sideWeight="0.501002" side_tool="true" weight="0.18335684" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -287,7 +308,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293011" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3293011" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4955357" visible="true" weight="0.2254902" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4955357" weight="0.22222222" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50446427" side_tool="true" weight="0.273752" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32850242" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -504,16 +525,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/views/tragos/lista-tragos.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/views/tragos/crear-listar.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/interfaces/trago.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        <state relative-caret-position="119">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/tragos.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
+        <state relative-caret-position="34">
           <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
@@ -521,24 +556,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/views/tragos/crear-listar.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/views/tragos/lista-tragos.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-67">
-          <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/01-http/02-servidor-web-nodejs/api-web/src/tragos/tragos.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        <state relative-caret-position="77">
+          <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
           <folding>
             <element signature="e#0#74#0" expanded="true" />
           </folding>
