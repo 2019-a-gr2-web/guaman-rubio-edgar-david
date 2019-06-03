@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Gestión de Entrenadores</title>
+</head>
+<style>
+    #footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        margin: auto;
+        text-align: right;
+    }
+    #tblList thead{
+        background: gray;
+        color: #FFF;
+        width:100%;
+    }
+</style>
+<body>
+<div class="page-header">
+    <h1>Gestión de Entrenadores<%=nombre%> <a href="/examen/eliminarCookieSeg"><button class="btn btn-success">Salir</button></a></h1>
+</div>
+<div class="form-group">
+    <div class="col-lg-offset-2 col-sm-4">
+        <a href="/api/entrenador/crearPaginaEntrenador"><input value="Crear Entrenador" id="btnCrearEntrenador" class="btn btn-success"/></a>
+    </div>
+    <div class="col-lg-offset-4 col-sm-8">
+        <form action="/api/entrenador/buscarEntrenador" method="get">
+            <label for="nombreId"></label>
+            <input type="text" id="nombreId" name="nombre" placeholder="Buscar" style="width: 50%">
+            <button type="submit" class="btn btn-success">Buscar</button>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <table class="table" id="makeEditable">
+        <thead>
+        <tr>
+            <th hidden="true">ID</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Fecha de nacimiento</th>
+            <th>Número de medallas</th>
+            <th>Campeón Actual</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% arregloEntrenadores.forEach((entrenador)=>{ %>
+        <tr class="info">
+            <td> <%=entrenador.nombres%> </td>
+            <td> <%=entrenador.apellidos%> </td>
+            <td> <%=entrenador.fechaNacimiento%> </td>
+            <td> <%=entrenador.numeroMedallas%> </td>
+            <td> <%=entrenador.campeonActual%> </td>
+            <td>
+                <form action="/api/entrenador/eliminarEntrenador" method="post">
+                    <label for="id" hidden="true">Id</label>
+                    <input type="number" hidden="true" id="id" name="id" value="<%=entrenador.id%>">
+                    <button type="submit" class="btn btn-success">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        <% })%>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -33,8 +33,9 @@ let TragosController = class TragosController {
         this._tragosService.crear(trago);
         res.redirect('/api/traguito/lista');
     }
-    eliminar(trago) {
-        trago.nombre;
+    eliminarTrago(id, res) {
+        this._tragosService.eliminarPorId(id);
+        res.redirect('/api/traguito/lista');
     }
 };
 __decorate([
@@ -61,10 +62,11 @@ __decorate([
 __decorate([
     common_1.Post('eliminar'),
     __param(0, common_1.Body()),
+    __param(1, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
-], TragosController.prototype, "eliminar", null);
+], TragosController.prototype, "eliminarTrago", null);
 TragosController = __decorate([
     common_1.Controller('/api/traguito'),
     __metadata("design:paramtypes", [tragos_service_1.TragosService])

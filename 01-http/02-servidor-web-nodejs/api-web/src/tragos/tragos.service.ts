@@ -16,6 +16,7 @@ export class TragosService {
         };
         this.crear(traguito)
     }
+
     crear(nuevoTrago:Trago):Trago{
         nuevoTrago.id = this.recnum;
         this.recnum++;
