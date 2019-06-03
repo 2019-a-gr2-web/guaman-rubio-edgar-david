@@ -17,47 +17,57 @@
         width: 100%;
         margin: auto;
         text-align: right;
+        color: darkblue;
     }
     #tblList thead{
         background: gray;
         color: #FFF;
         width:100%;
     }
+    button{
+        background-color: #1726eb;
+    }
 </style>
 
 <body>
-<h1>Creación de Pokemones <%=nombre%> <a href="/examen/eliminarCookieSeg"><button class="btn btn-success">Salir</button></a></h1>
+<h1>Creación de Pokemones <a href="/examen/eliminarCookieSeg"><button class="btn btn-success">Salir</button></a></h1>
 <br>
 <div class="container">
     <form id="frmPerson" class="form-horizontal" action="/api/pokemon/crearPokemon" method="post">
         <div class="form-group">
             <label for="numeroPokemonID" class="col-sm-2 control-label">Número de Pokemon</label>
             <div class="col-sm-4">
-                <input type="number" id="numeroPokemonID" name="numeroPokemon" class="form-control" placeholder="Número de Pokemon">
+                <input type="number" id="numeroPokemonID" name="numeroPokemon" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nombrePokemonID" class="col-lg-2 control-label">Nombre del Pokemon</label>
+            <div class="col-sm-4">
+                <input type="text" id="nombrePokemonID" name="nombrePokemon" class="form-control">
             </div>
         </div>
         <div class="form-group">
             <label for="poderEspecialUnoId" class="col-lg-2 control-label">Poder Especial Uno</label>
             <div class="col-sm-4">
-                <input type="text" id="poderEspecialUnoId" name="poderEspecialUno" class="form-control" placeholder="Poder Especial Uno">
+                <input type="text" id="poderEspecialUnoId" name="poderEspecialUno" class="form-control">
             </div>
         </div>
         <div class="form-group">
             <label for="poderEspecialDosId" class="col-lg-2 control-label">Poder Especial Dos</label>
             <div class="col-sm-4">
-                <input type="text" id="poderEspecialDosId" name="poderEspecialDos" class="form-control" placeholder="Poder Especial Dos">
+                <input type="text" id="poderEspecialDosId" name="poderEspecialDos" class="form-control">
             </div>
         </div>
         <div class="form-group">
             <label for="fechaCapturaId" class="col-lg-2 control-label">Fecha de captura</label>
             <div class="col-sm-4">
-                <input type="date" id="fechaCapturaId" name="fechaCaptura" class="form-control" placeholder="Fecha de Captura">
+                <input type="date" id="fechaCapturaId" name="fechaCaptura" class="form-control">
             </div>
         </div>
         <div class="form-group">
             <label for="nivelId" class="col-lg-2 control-label">Nivel</label>
             <div class="col-sm-4">
-                <input type="number" id="nivelId" name="nivel" class="form-control" placeholder="Nivel">
+                <input type="number" id="nivelId" name="nivel" class="form-control">
             </div>
         </div>
         <div class="form-group">

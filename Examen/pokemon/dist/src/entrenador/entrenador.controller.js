@@ -19,41 +19,28 @@ let EntrenadorController = class EntrenadorController {
         this.entrenadorService = entrenadorService;
     }
     entrenadores(req, res) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
-        console.log(nombre);
-        res.cookie('usuario', nombre, { signed: true });
         const arregloEntrenadores = this.entrenadorService.bddEntrenador;
-        res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, nombre: nombre });
+        res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, });
     }
-    buscarPaginaEquipo(nombreBuscar, res, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
+    buscarPaginaEntrenador(nombreBuscar, res, req) {
         const arregloEntrenadores = this.entrenadorService.buscarPorNombre(nombreBuscar.nombre);
-        res.cookie('usuario', nombre, { signed: true });
-        res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, nombre: nombre });
+        res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, });
     }
     crearPaginaEquipo(res, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
-        res.cookie('usuario', nombre, { signed: true });
-        res.render('entrenador/crear', { nombre: nombre });
+        res.cookie('usuario', { signed: true });
+        res.render('entrenador/crear');
     }
-    crearEquipoPost(entrenador, res, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
+    crearEntrenadorPost(entrenador, res, req) {
         entrenador.numeroMedallas = Number(entrenador.numeroMedallas);
         entrenador.fechaNacimiento = new Date(entrenador.fechaNacimiento);
         this.entrenadorService.crear(entrenador);
-        res.cookie('usuario', nombre, { signed: true });
+        res.cookie('usuario', { signed: true });
         res.redirect('/api/entrenador/entrenadores');
     }
-    eliminarEquipoDelete(entrenador, res, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
+    eliminarEntrenadorDelete(entrenador, res, req) {
         entrenador.id = Number(entrenador.id);
         const arregloEntrenadorEliminado = this.entrenadorService.eliminarPorId(entrenador.id);
-        res.cookie('usuario', nombre, { signed: true });
+        res.cookie('usuario', { signed: true });
         res.redirect('/api/entrenador/entrenadores');
     }
 };
@@ -73,7 +60,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
-], EntrenadorController.prototype, "buscarPaginaEquipo", null);
+], EntrenadorController.prototype, "buscarPaginaEntrenador", null);
 __decorate([
     common_1.Get('crearPaginaEntrenador'),
     __param(0, common_1.Res()),
@@ -90,7 +77,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
-], EntrenadorController.prototype, "crearEquipoPost", null);
+], EntrenadorController.prototype, "crearEntrenadorPost", null);
 __decorate([
     common_1.Post('eliminarEntrenador'),
     __param(0, common_1.Body()),
@@ -99,7 +86,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
-], EntrenadorController.prototype, "eliminarEquipoDelete", null);
+], EntrenadorController.prototype, "eliminarEntrenadorDelete", null);
 EntrenadorController = __decorate([
     common_1.Controller('/api/entrenador'),
     __metadata("design:paramtypes", [entrenador_service_1.EntrenadorService])

@@ -22,49 +22,36 @@ let PokemonController = class PokemonController {
         console.log(entrenadorId.entrenadorId);
         if (entrenadorId.padreId === undefined) {
             const arregloPokemon = this._pokemonService.buscarPorIdIngresado();
-            const cookieSeg = req.signedCookies;
-            const nombre = cookieSeg.usuario;
-            res.cookie('usuario', nombre, { signed: true });
-            res.render('pokemon/inicio', { arreglopokemon: arregloPokemon, nombre: nombre });
+            res.cookie('usuario', { signed: true });
+            res.render('pokemon/inicio', { arregloPokemon: arregloPokemon, });
         }
         else {
             entrenadorId.entrenadorId = Number(entrenadorId.entrenadorId);
-            const arreglopokemon = this._pokemonService.buscarPorIdEntrenador(entrenadorId.entrenadorId);
-            const cookieSeg = req.signedCookies;
-            const nombre = cookieSeg.usuario;
-            res.cookie('usuario', nombre, { signed: true });
-            res.render('pokemon/inicio', { arreglopokemon: arreglopokemon, nombre: nombre });
+            const arregloPokemon = this._pokemonService.buscarPorIdEntrenador(entrenadorId.entrenadorId);
+            res.cookie('usuario', { signed: true });
+            res.render('pokemon/inicio', { arregloPokemon: arregloPokemon, });
         }
     }
     buscarPaginaPokemon(nombreBuscar, res, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
-        const arreglojugador = this._pokemonService.buscarPorNombre(nombreBuscar.nombreCompletoJugador);
-        res.cookie('usuario', nombre, { signed: true });
-        res.render('jugadores/inicio', { arreglojugador: arreglojugador, nombre: nombre });
+        const arregloPokemon = this._pokemonService.buscarPorNombre(nombreBuscar.nombrePokemon);
+        res.render('pokemon/inicio', { arregloPokemon: arregloPokemon, });
     }
     crearPaginaPokemon(res, entrenadorId, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
-        res.cookie('usuario', nombre, { signed: true });
-        res.render('pokemon/crear', { nombre: nombre });
+        res.cookie('usuario', { signed: true });
+        res.render('pokemon/crear');
     }
-    crearJugadorPost(pokemon, res, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
+    crearPokemonPost(pokemon, res, req) {
         pokemon.numeroPokemon = Number(pokemon.numeroPokemon);
         pokemon.fechaCaptura = new Date(pokemon.fechaCaptura);
         pokemon.nivel = Number(pokemon.nivel);
         this._pokemonService.crear(pokemon);
-        res.cookie('usuario', nombre, { signed: true });
+        res.cookie('usuario', { signed: true });
         res.redirect('/api/pokemon/pokemones');
     }
     eliminarEquipoDelete(pokemon, res, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario;
         pokemon.id = Number(pokemon.id);
         const arregloEntrenadorEliminado = this._pokemonService.eliminarPorId(pokemon.id);
-        res.cookie('usuario', nombre, { signed: true });
+        res.cookie('usuario', { signed: true });
         res.redirect('/api/pokemon/pokemones');
     }
 };
@@ -103,7 +90,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
-], PokemonController.prototype, "crearJugadorPost", null);
+], PokemonController.prototype, "crearPokemonPost", null);
 __decorate([
     common_1.Post('eliminarPokemon'),
     __param(0, common_1.Body()),

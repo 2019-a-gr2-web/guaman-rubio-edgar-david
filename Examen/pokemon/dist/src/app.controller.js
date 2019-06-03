@@ -22,17 +22,12 @@ let AppController = class AppController {
         return response.render('inicio');
     }
     almacenarCookieUsuario(res, nombre) {
-        res.cookie('usuario', nombre, { signed: true });
         res.redirect('/examen/mostrarMenu');
     }
     mostrarMenu(res, req) {
-        const cookieSeg = req.signedCookies;
-        const nombre = cookieSeg.usuario.nombreUsuario;
-        res.cookie('usuario', nombre, { signed: true });
-        res.render('principal/inicio', { nombre: nombre });
+        res.render('principal/inicio');
     }
     eliminarCookieSeg(res, req) {
-        res.clearCookie('usuario');
         res.redirect('/examen/inicio');
     }
 };

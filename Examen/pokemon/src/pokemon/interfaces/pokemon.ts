@@ -1,3 +1,5 @@
+import {Entrenador} from "../../entrenador/interfaces/entrenador";
+
 export interface Pokemon {
     id?:number;
     numeroPokemon: number;
