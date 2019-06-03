@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Gestión de Pokemones</title>
+</head>
+<style>
+    #footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        margin: auto;
+        text-align: right;
+    }
+    #tblList thead{
+        background: gray;
+        color: #FFF;
+        width:100%;
+    }
+</style>
+
+<body>
+<h1>Creación de Pokemones <%=nombre%> <a href="/examen/eliminarCookieSeg"><button class="btn btn-success">Salir</button></a></h1>
+<br>
+<div class="container">
+    <form id="frmPerson" class="form-horizontal" action="/api/pokemon/crearPokemon" method="post">
+        <div class="form-group">
+            <label for="numeroPokemonID" class="col-sm-2 control-label">Número de Pokemon</label>
+            <div class="col-sm-4">
+                <input type="number" id="numeroPokemonID" name="numeroPokemon" class="form-control" placeholder="Número de Pokemon">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="poderEspecialUnoId" class="col-lg-2 control-label">Poder Especial Uno</label>
+            <div class="col-sm-4">
+                <input type="text" id="poderEspecialUnoId" name="poderEspecialUno" class="form-control" placeholder="Poder Especial Uno">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="poderEspecialDosId" class="col-lg-2 control-label">Poder Especial Dos</label>
+            <div class="col-sm-4">
+                <input type="text" id="poderEspecialDosId" name="poderEspecialDos" class="form-control" placeholder="Poder Especial Dos">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fechaCapturaId" class="col-lg-2 control-label">Fecha de captura</label>
+            <div class="col-sm-4">
+                <input type="date" id="fechaCapturaId" name="fechaCaptura" class="form-control" placeholder="Fecha de Captura">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nivelId" class="col-lg-2 control-label">Nivel</label>
+            <div class="col-sm-4">
+                <input type="number" id="nivelId" name="nivel" class="form-control" placeholder="Nivel">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-sm-4">
+                <input type="submit" value="Insertar" id="btnSave" class="btn btn-success"/>
+            </div>
+        </div>
+    </form>
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-sm-0">
+            <a href="/api/pokemon/pokemones"><button class="btn btn-success">Cancelar</button></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
