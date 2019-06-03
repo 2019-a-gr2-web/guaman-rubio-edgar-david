@@ -10,12 +10,12 @@ export class AppController {
     return response.render(
         'inicio');
   }
-  
+
   @Post('guardarCookieSeg')
   almacenarCookieUsuario(@Res() res,
                          @Body() nombre:string
   ){
-    //res.cookie('usuario', nombre, {signed:true});
+    res.cookie('usuario', nombre, {signed:true});
     res.redirect('/examen/mostrarMenu');
   }
 
@@ -23,9 +23,9 @@ export class AppController {
   mostrarMenu(@Res() res,
               @Req() req
   ){
-    //const cookieSeg=req.signedCookies;
-    //const nombre = cookieSeg.usuario.nombreUsuario;
-    //res.cookie('usuario', nombre, {signed:true});
+    const cookieSeg=req.signedCookies;
+    const nombre = cookieSeg.usuario.nombreUsuario;
+    res.cookie('usuario', nombre, {signed:true});
     res.render('principal/inicio', /*{nombre:nombre}*/);
   }
 
@@ -34,7 +34,7 @@ export class AppController {
       @Res() res,
       @Req() req
   ){
-    //res.clearCookie('usuario');
+    res.clearCookie('usuario');
     res.redirect('/examen/inicio');
   }
 }

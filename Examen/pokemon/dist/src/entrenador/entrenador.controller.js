@@ -19,25 +19,38 @@ let EntrenadorController = class EntrenadorController {
         this.entrenadorService = entrenadorService;
     }
     entrenadores(req, res) {
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
+        console.log(nombre);
+        res.cookie('usuario', nombre, { signed: true });
         const arregloEntrenadores = this.entrenadorService.bddEntrenador;
-        res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, });
+        res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, nombre: nombre });
     }
     buscarPaginaEntrenador(nombreBuscar, res, req) {
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
         const arregloEntrenadores = this.entrenadorService.buscarPorNombre(nombreBuscar.nombre);
-        res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, });
+        res.cookie('usuario', nombre, { signed: true });
+        res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, nombre: nombre });
     }
     crearPaginaEquipo(res, req) {
-        res.cookie('usuario', { signed: true });
-        res.render('entrenador/crear');
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
+        res.cookie('usuario', nombre, { signed: true });
+        res.render('entrenador/crear', { nombre: nombre });
     }
     crearEntrenadorPost(entrenador, res, req) {
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
         entrenador.numeroMedallas = Number(entrenador.numeroMedallas);
         entrenador.fechaNacimiento = new Date(entrenador.fechaNacimiento);
         this.entrenadorService.crear(entrenador);
-        res.cookie('usuario', { signed: true });
+        res.cookie('usuario', nombre, { signed: true });
         res.redirect('/api/entrenador/entrenadores');
     }
     eliminarEntrenadorDelete(entrenador, res, req) {
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
         entrenador.id = Number(entrenador.id);
         const arregloEntrenadorEliminado = this.entrenadorService.eliminarPorId(entrenador.id);
         res.cookie('usuario', { signed: true });

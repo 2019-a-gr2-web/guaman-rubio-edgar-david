@@ -11,32 +11,32 @@ export class EntrenadorController {
     @Get('entrenadores')
     entrenadores(@Req() req,
                         @Res() res){
-        //const cookieSeg = req.signedCookies;
-        //const nombre = cookieSeg.usuario;
-        //console.log(nombre);
-        //res.cookie('usuario', nombre, {signed:true});
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
+        console.log(nombre);
+        res.cookie('usuario', nombre, {signed:true});
         const arregloEntrenadores = this.entrenadorService.bddEntrenador;
-        res.render('entrenador/inicio', {arregloEntrenadores:arregloEntrenadores, /*nombre:nombre*/});
+        res.render('entrenador/inicio', {arregloEntrenadores:arregloEntrenadores, nombre:nombre});
     }
 
     @Get('buscarEntrenador')
     buscarPaginaEntrenador(@Query() nombreBuscar,
                        @Res() res,
                        @Req() req){
-        //const cookieSeg = req.signedCookies;
-        //const nombre = cookieSeg.usuario;
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
         const arregloEntrenadores = this.entrenadorService.buscarPorNombre(nombreBuscar.nombre);
-        //res.cookie('usuario', nombre, {signed:true});
-        res.render('entrenador/inicio', {arregloEntrenadores:arregloEntrenadores, /*nombre:nombre*/});
+        res.cookie('usuario', nombre, {signed:true});
+        res.render('entrenador/inicio', {arregloEntrenadores:arregloEntrenadores,nombre:nombre});
     }
 
     @Get('crearPaginaEntrenador')
     crearPaginaEquipo(@Res() res,
                       @Req() req){
-        //const cookieSeg = req.signedCookies;
-        //const nombre = cookieSeg.usuario;
-        res.cookie('usuario' /*nombre*/, {signed:true});
-        res.render('entrenador/crear',/*{nombre:nombre}*/);
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
+        res.cookie('usuario',nombre, {signed:true});
+        res.render('entrenador/crear',{nombre:nombre});
     }
 
     @Post('crearEntrenador')
@@ -45,12 +45,12 @@ export class EntrenadorController {
         @Res() res,
         @Req() req
     ) {
-        //const cookieSeg = req.signedCookies;
-        //const nombre = cookieSeg.usuario;
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
         entrenador.numeroMedallas = Number(entrenador.numeroMedallas);
         entrenador.fechaNacimiento = new Date(entrenador.fechaNacimiento);
         this.entrenadorService.crear(entrenador);
-        res.cookie('usuario' /*nombre*/, {signed:true});
+        res.cookie('usuario',nombre, {signed:true});
         res.redirect('/api/entrenador/entrenadores');
     }
 
@@ -59,8 +59,8 @@ export class EntrenadorController {
                          @Res() res,
                          @Req() req)
     {
-        //const cookieSeg = req.signedCookies;
-        //const nombre = cookieSeg.usuario;
+        const cookieSeg = req.signedCookies;
+        const nombre = cookieSeg.usuario;
         entrenador.id= Number(entrenador.id);
         const arregloEntrenadorEliminado = this.entrenadorService.eliminarPorId(entrenador.id);
         res.cookie('usuario' /*nombre*/, {signed:true});
