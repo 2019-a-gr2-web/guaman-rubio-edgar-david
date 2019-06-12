@@ -19,24 +19,24 @@
         text-align: right;
     }
     #tblList thead{
-        background: gray;
-        color: #FFF;
+        background: #355ae4;
+        color: #c8974d;
         width:100%;
     }
 </style>
 <body>
 <div class="page-header">
-    <h1>Gestión de Entrenadores <a href="/examen/eliminarCookieSeg"><button class="btn btn-success">Salir</button></a></h1>
+    <h1>Gestión de Entrenadores <a href="/examen/eliminarCookieSeg"><button class="btn">Salir</button></a></h1>
 </div>
 <div class="form-group">
     <div class="col-lg-offset-2 col-sm-4">
-        <a href="/api/entrenador/crearPaginaEntrenador"><input value="Crear Entrenador" id="btnCrearEntrenador" class="btn btn-success"/></a>
+        <a href="/api/entrenador/crearPaginaEntrenador"><input value="Crear Entrenador" id="btnCrearEntrenador" class="btn"/></a>
     </div>
     <div class="col-lg-offset-4 col-sm-8">
         <form action="/api/entrenador/buscarEntrenador" method="get">
             <label for="nombreId"></label>
             <input type="text" id="nombreId" name="nombre" placeholder="Buscar" style="width: 50%">
-            <button type="submit" class="btn btn-success">Buscar</button>
+            <button type="submit" class="btn">Buscar</button>
         </form>
     </div>
 </div>
@@ -65,14 +65,14 @@
                 <form action="/api/entrenador/eliminarEntrenador" method="post">
                     <label for="id" hidden="true">Id</label>
                     <input type="number" hidden="true" id="id" name="id" value="<%=entrenador.id%>">
-                    <button type="submit" class="btn btn-success">Eliminar</button>
+                    <button type="submit" class="btn">Eliminar</button>
                 </form>
             </td>
             <td>
                 <form action="/api/pokemon/pokemones" method="get">
                     <label for="id" hidden="true">Id</label>
                     <input type="number" hidden="true" id="id" name="padreId" value="<%=entrenador.id%>">
-                    <button type="submit" class="btn btn-success">Gestionar Pokemons</button>
+                    <button type="submit" class="btn">Gestionar Pokemons</button>
                 </form>
             </td>
         </tr>

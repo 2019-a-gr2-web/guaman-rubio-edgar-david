@@ -13,7 +13,7 @@ export class PokemonService {
 
     crear(nuevoPokemon: Pokemon): Pokemon {
         nuevoPokemon.id = this.recnum;
-        nuevoPokemon.entrenadorId = this.entrenadorId;
+        this.entrenadorId=nuevoPokemon.entrenadorId;
         this.recnum++;
         this.bddPokemon.push(nuevoPokemon);
         return nuevoPokemon;
@@ -32,6 +32,7 @@ export class PokemonService {
     buscarPorIdIngresado(): Pokemon[] {
         const lstFilter = this.bddPokemon.filter(
             (pokemon) => {
+                console.log(this.entrenadorId);
                 return pokemon.entrenadorId === this.entrenadorId;
             }
         );

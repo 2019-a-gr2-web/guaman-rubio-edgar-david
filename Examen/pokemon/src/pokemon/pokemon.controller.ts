@@ -59,6 +59,8 @@ export class PokemonController {
     ) {
         const cookieSeg = req.signedCookies;
         const nombre = cookieSeg.usuario;
+        console.log(nombre);
+        console.log(pokemon.nombrePokemon);
         pokemon.numeroPokemon = Number(pokemon.numeroPokemon);
         pokemon.fechaCaptura = new Date(pokemon.fechaCaptura);
         pokemon.nivel = Number(pokemon.nivel);
