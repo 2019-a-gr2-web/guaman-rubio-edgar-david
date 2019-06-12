@@ -26,8 +26,9 @@ export class AppController {
     const cookieSeg=req.signedCookies;
     const nombre = cookieSeg.usuario.nombreUsuario;
     res.cookie('usuario', nombre, {signed:true});
-    res.render('principal/inicio', {nombre:nombre});
+    res.render('principal/inicio', /*{nombre:nombre}*/);
   }
+
   @Get('eliminarCookieSeg')
   eliminarCookieSeg(
       @Res() res,

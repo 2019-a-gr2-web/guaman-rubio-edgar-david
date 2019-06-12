@@ -7,6 +7,7 @@ export class EntrenadorController {
     constructor(private readonly entrenadorService: EntrenadorService) {
     }
 
+
     @Get('entrenadores')
     entrenadores(@Req() req,
                         @Res() res){
@@ -19,14 +20,14 @@ export class EntrenadorController {
     }
 
     @Get('buscarEntrenador')
-    buscarPaginaEquipo(@Query() nombreBuscar,
+    buscarPaginaEntrenador(@Query() nombreBuscar,
                        @Res() res,
                        @Req() req){
         const cookieSeg = req.signedCookies;
         const nombre = cookieSeg.usuario;
         const arregloEntrenadores = this.entrenadorService.buscarPorNombre(nombreBuscar.nombre);
         res.cookie('usuario', nombre, {signed:true});
-        res.render('entrenador/inicio', {arregloEntrenadores:arregloEntrenadores, nombre:nombre});
+        res.render('entrenador/inicio', {arregloEntrenadores:arregloEntrenadores,nombre:nombre});
     }
 
     @Get('crearPaginaEntrenador')
@@ -34,12 +35,12 @@ export class EntrenadorController {
                       @Req() req){
         const cookieSeg = req.signedCookies;
         const nombre = cookieSeg.usuario;
-        res.cookie('usuario', nombre, {signed:true});
+        res.cookie('usuario',nombre, {signed:true});
         res.render('entrenador/crear',{nombre:nombre});
     }
 
     @Post('crearEntrenador')
-    crearEquipoPost(
+    crearEntrenadorPost(
         @Body() entrenador: Entrenador,
         @Res() res,
         @Req() req
@@ -49,12 +50,12 @@ export class EntrenadorController {
         entrenador.numeroMedallas = Number(entrenador.numeroMedallas);
         entrenador.fechaNacimiento = new Date(entrenador.fechaNacimiento);
         this.entrenadorService.crear(entrenador);
-        res.cookie('usuario', nombre, {signed:true});
+        res.cookie('usuario',nombre, {signed:true});
         res.redirect('/api/entrenador/entrenadores');
     }
 
     @Post('eliminarEntrenador')
-    eliminarEquipoDelete(@Body() entrenador: Entrenador,
+    eliminarEntrenadorDelete(@Body() entrenador: Entrenador,
                          @Res() res,
                          @Req() req)
     {
@@ -62,7 +63,7 @@ export class EntrenadorController {
         const nombre = cookieSeg.usuario;
         entrenador.id= Number(entrenador.id);
         const arregloEntrenadorEliminado = this.entrenadorService.eliminarPorId(entrenador.id);
-        res.cookie('usuario', nombre, {signed:true});
+        res.cookie('usuario' /*nombre*/, {signed:true});
         res.redirect('/api/entrenador/entrenadores');
     }
 }

@@ -25,23 +25,23 @@ let PokemonController = class PokemonController {
             const cookieSeg = req.signedCookies;
             const nombre = cookieSeg.usuario;
             res.cookie('usuario', nombre, { signed: true });
-            res.render('pokemon/inicio', { arreglopokemon: arregloPokemon, nombre: nombre });
+            res.render('pokemon/inicio', { arregloPokemon: arregloPokemon, nombre: nombre });
         }
         else {
             entrenadorId.entrenadorId = Number(entrenadorId.entrenadorId);
-            const arreglopokemon = this._pokemonService.buscarPorIdEntrenador(entrenadorId.entrenadorId);
+            const arregloPokemon = this._pokemonService.buscarPorIdEntrenador(entrenadorId.entrenadorId);
             const cookieSeg = req.signedCookies;
             const nombre = cookieSeg.usuario;
             res.cookie('usuario', nombre, { signed: true });
-            res.render('pokemon/inicio', { arreglopokemon: arreglopokemon, nombre: nombre });
+            res.render('pokemon/inicio', { arregloPokemon: arregloPokemon, nombre: nombre });
         }
     }
     buscarPaginaPokemon(nombreBuscar, res, req) {
         const cookieSeg = req.signedCookies;
         const nombre = cookieSeg.usuario;
-        const arreglojugador = this._pokemonService.buscarPorNombre(nombreBuscar.nombreCompletoJugador);
+        const arregloPokemon = this._pokemonService.buscarPorNombre(nombreBuscar.nombrePokemon);
         res.cookie('usuario', nombre, { signed: true });
-        res.render('jugadores/inicio', { arreglojugador: arreglojugador, nombre: nombre });
+        res.render('pokemon/inicio', { arregloPokemon: arregloPokemon, nombre: nombre });
     }
     crearPaginaPokemon(res, entrenadorId, req) {
         const cookieSeg = req.signedCookies;
@@ -49,9 +49,11 @@ let PokemonController = class PokemonController {
         res.cookie('usuario', nombre, { signed: true });
         res.render('pokemon/crear', { nombre: nombre });
     }
-    crearJugadorPost(pokemon, res, req) {
+    crearPokemonPost(pokemon, res, req) {
         const cookieSeg = req.signedCookies;
         const nombre = cookieSeg.usuario;
+        console.log(nombre);
+        console.log(pokemon.nombrePokemon);
         pokemon.numeroPokemon = Number(pokemon.numeroPokemon);
         pokemon.fechaCaptura = new Date(pokemon.fechaCaptura);
         pokemon.nivel = Number(pokemon.nivel);
@@ -103,7 +105,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
-], PokemonController.prototype, "crearJugadorPost", null);
+], PokemonController.prototype, "crearPokemonPost", null);
 __decorate([
     common_1.Post('eliminarPokemon'),
     __param(0, common_1.Body()),

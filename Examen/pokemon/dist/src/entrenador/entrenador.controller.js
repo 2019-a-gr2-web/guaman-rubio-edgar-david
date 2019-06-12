@@ -26,7 +26,7 @@ let EntrenadorController = class EntrenadorController {
         const arregloEntrenadores = this.entrenadorService.bddEntrenador;
         res.render('entrenador/inicio', { arregloEntrenadores: arregloEntrenadores, nombre: nombre });
     }
-    buscarPaginaEquipo(nombreBuscar, res, req) {
+    buscarPaginaEntrenador(nombreBuscar, res, req) {
         const cookieSeg = req.signedCookies;
         const nombre = cookieSeg.usuario;
         const arregloEntrenadores = this.entrenadorService.buscarPorNombre(nombreBuscar.nombre);
@@ -39,7 +39,7 @@ let EntrenadorController = class EntrenadorController {
         res.cookie('usuario', nombre, { signed: true });
         res.render('entrenador/crear', { nombre: nombre });
     }
-    crearEquipoPost(entrenador, res, req) {
+    crearEntrenadorPost(entrenador, res, req) {
         const cookieSeg = req.signedCookies;
         const nombre = cookieSeg.usuario;
         entrenador.numeroMedallas = Number(entrenador.numeroMedallas);
@@ -48,12 +48,12 @@ let EntrenadorController = class EntrenadorController {
         res.cookie('usuario', nombre, { signed: true });
         res.redirect('/api/entrenador/entrenadores');
     }
-    eliminarEquipoDelete(entrenador, res, req) {
+    eliminarEntrenadorDelete(entrenador, res, req) {
         const cookieSeg = req.signedCookies;
         const nombre = cookieSeg.usuario;
         entrenador.id = Number(entrenador.id);
         const arregloEntrenadorEliminado = this.entrenadorService.eliminarPorId(entrenador.id);
-        res.cookie('usuario', nombre, { signed: true });
+        res.cookie('usuario', { signed: true });
         res.redirect('/api/entrenador/entrenadores');
     }
 };
@@ -73,7 +73,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
-], EntrenadorController.prototype, "buscarPaginaEquipo", null);
+], EntrenadorController.prototype, "buscarPaginaEntrenador", null);
 __decorate([
     common_1.Get('crearPaginaEntrenador'),
     __param(0, common_1.Res()),
@@ -90,7 +90,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
-], EntrenadorController.prototype, "crearEquipoPost", null);
+], EntrenadorController.prototype, "crearEntrenadorPost", null);
 __decorate([
     common_1.Post('eliminarEntrenador'),
     __param(0, common_1.Body()),
@@ -99,7 +99,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
-], EntrenadorController.prototype, "eliminarEquipoDelete", null);
+], EntrenadorController.prototype, "eliminarEntrenadorDelete", null);
 EntrenadorController = __decorate([
     common_1.Controller('/api/entrenador'),
     __metadata("design:paramtypes", [entrenador_service_1.EntrenadorService])

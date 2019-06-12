@@ -19,29 +19,32 @@
         text-align: right;
     }
     #tblList thead{
-        background: gray;
-        color: #FFF;
+        background: #2dc4c3;
+        color: #9bd61f;
         width:100%;
+    }
+    button{
+        background-color: #1726eb;
     }
 </style>
 <body>
 <div class="page-header">
-    <h1>Gestión de Pokemones <%=nombre%> <a href="/examen/eliminarCookieSeg"><button class="btn btn-success">Salir</button></a></h1>
+    <h1>Gestión de Pokemones <a href="/examen/eliminarCookieSeg"><button class="btn">Salir</button></a></h1>
 </div>
 <div class="form-group">
     <div class="col-lg-offset-2 col-sm-4">
-        <a href="/api/pokemon/crearPaginaPokemon"><button class="btn btn-success">Crear Pokemon</button></a>
+        <a href="/api/pokemon/crearPaginaPokemon"><button class="btn">Crear Pokemon</button></a>
     </div>
     <div class="col-lg-offset-2 col-sm-4">
-        <a href="/api/entrenador/entrenadores"><button class="btn btn-success">Cancelar Pokemon</button></a>
+        <a href="/api/entrenador/entrenadores"><button class="btn">Cancelar Pokemon</button></a>
     </div>
     <br>
     <br>
     <div class="col-lg-offset-4 col-sm-8">
         <form action="/api/pokemon/buscarPokemon" method="get">
-            <label for="poderEspecialUnoId"></label>
-            <input type="text" id="poderEspecialUnoId" name="poderEspecialUno" placeholder="Buscar" style="width: 50%">
-            <button type="submit" class="btn btn-success">Buscar</button>
+            <label for="nombrePokemonId"></label>
+            <input type="text" id="nombrePokemonId" name="nombrePokemon" placeholder="Buscar" style="width: 50%">
+            <button type="submit" class="btn">Buscar</button>
         </form>
     </div>
 </div>
@@ -51,6 +54,7 @@
         <tr>
             <th hidden="true">ID</th>
             <th>Número de Pokemon</th>
+            <th>Nombre del Pokemon</th>
             <th>Poder Especial Uno</th>
             <th>Poder Especial Dos</th>
             <th>Fecha de Captura</th>
@@ -61,6 +65,7 @@
         <% arregloPokemon.forEach((pokemon)=>{ %>
         <tr class="info">
             <td> <%=pokemon.numeroPokemon%> </td>
+            <td> <%=pokemon.nombrePokemon%> </td>
             <td> <%=pokemon.poderEspecialUno%> </td>
             <td> <%=pokemon.poderEspecialDos%> </td>
             <td> <%=pokemon.fechaCaptura%> </td>
@@ -69,7 +74,7 @@
                 <form action="/api/pokemon/eliminarPokemon" method="post">
                     <label for="id" hidden="true">Id</label>
                     <input type="number" hidden="true" id="id" name="id" value="<%=pokemon.id%>">
-                    <button type="submit" class="btn btn-success">Eliminar</button>
+                    <button type="submit" class="btn">Eliminar</button>
                 </form>
             </td>
         </tr>
