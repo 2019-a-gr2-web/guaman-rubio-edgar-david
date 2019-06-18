@@ -28,14 +28,24 @@ let TragosService = class TragosService {
             precio: 1.75,
             tipo: "Cerveza"
         };
-        this.crear(traguito);
         const objetoEntidad = this._tragosRepository.create(traguito);
+        this._tragosRepository
+            .save(objetoEntidad)
+            .then((datos) => {
+            console.log('Dato creado:', datos);
+        })
+            .catch((error) => {
+            console.error('Error:', error);
+        });
+        this.crear(traguito);
     }
     crear(nuevoTrago) {
-        nuevoTrago.id = this.recnum;
-        this.recnum++;
-        this.bddTragos.push(nuevoTrago);
-        return nuevoTrago;
+        const objetoEntidad = this._tragosRepository
+            .create(nuevoTrago);
+        return this._tragosRepository.save(objetoEntidad);
+    }
+    buscar(parametrosBusqueda) {
+        return this._tragosRepository.find(parametrosBusqueda);
     }
     buscarPorId(id) {
         return this.bddTragos.find((trago => { return trago.id === id; }));

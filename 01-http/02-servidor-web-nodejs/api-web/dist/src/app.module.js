@@ -12,11 +12,18 @@ const app_service_1 = require("./app.service");
 const tragos_module_1 = require("./tragos/tragos.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const tragos_entity_1 = require("./tragos/tragos.entity");
+const distribuidor_module_1 = require("./distribuidor/distribuidor.module");
+const fiesta_module_1 = require("./fiesta/fiesta.module");
+const fiesta_entity_1 = require("./fiesta/fiesta.entity");
+const distribuidor_entity_1 = require("./distribuidor/distribuidor.entity");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [tragos_module_1.TragosModule,
+        imports: [
+            distribuidor_module_1.DistribuidorModule,
+            fiesta_module_1.FiestaModule,
+            tragos_module_1.TragosModule,
             typeorm_1.TypeOrmModule.forRoot({
                 name: 'default',
                 type: 'mysql',
@@ -25,10 +32,11 @@ AppModule = __decorate([
                 username: 'root',
                 password: '123456789',
                 database: 'prueba',
-                entities: [tragos_entity_1.TragosEntity],
+                entities: [tragos_entity_1.TragosEntity, fiesta_entity_1.FiestaEntity, distribuidor_entity_1.DistribuidorEntity],
                 synchronize: true,
                 insecureAuth: true
-            }),],
+            }),
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

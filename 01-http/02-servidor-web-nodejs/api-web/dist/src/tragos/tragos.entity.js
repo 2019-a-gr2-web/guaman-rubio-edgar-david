@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const distribuidor_entity_1 = require("../distribuidor/distribuidor.entity");
+const fiesta_entity_1 = require("../fiesta/fiesta.entity");
 let TragosEntity = class TragosEntity {
 };
 __decorate([
@@ -55,6 +57,14 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], TragosEntity.prototype, "precio", void 0);
+__decorate([
+    typeorm_1.ManyToOne(type => distribuidor_entity_1.DistribuidorEntity, distribuidor => distribuidor.tragos),
+    __metadata("design:type", distribuidor_entity_1.DistribuidorEntity)
+], TragosEntity.prototype, "distribuidorId", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => fiesta_entity_1.FiestaEntity, fiesta => fiesta),
+    __metadata("design:type", Array)
+], TragosEntity.prototype, "fiestas", void 0);
 TragosEntity = __decorate([
     typeorm_1.Entity('bd_trago')
 ], TragosEntity);
