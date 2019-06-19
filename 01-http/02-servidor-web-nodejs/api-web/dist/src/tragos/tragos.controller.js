@@ -22,6 +22,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const tragos_service_1 = require("./tragos.service");
+const tragos_create_dto_1 = require("./dto/tragos.create.dto");
+const class_validator_1 = require("class-validator");
 let TragosController = class TragosController {
     constructor(_tragosService) {
         this._tragosService = _tragosService;
@@ -32,19 +34,32 @@ let TragosController = class TragosController {
             res.render('tragos/lista-tragos', { arregloTragos: arregloTragos });
         });
     }
-    crearTrago(res) {
-        res.render('tragos/crear-listar');
+    crearTrago(res, mensaje) {
+        res.render('tragos/crear-listar', { mensaje: mensaje });
     }
     crearTragoPost(trago, res) {
         return __awaiter(this, void 0, void 0, function* () {
             trago.gradosAlcohol = Number(trago.gradosAlcohol);
             trago.precio = Number(trago.precio);
-            trago.fechaCaducidad = new Date(trago.fechaCaducidad);
+            trago.fechaCaducidad = trago.fechaCaducidad ? new Date(trago.fechaCaducidad) : undefined;
             console.log(trago);
+            let tragoAValidar = new tragos_create_dto_1.TragosCreateDto();
+            tragoAValidar.nombre = trago.nombre;
+            tragoAValidar.tipo = trago.tipo;
+            tragoAValidar.fechaCaducidad = trago.fechaCaducidad;
+            tragoAValidar.precio = trago.precio;
+            tragoAValidar.gradosAlcohol = trago.gradosAlcohol;
             try {
-                const respuestaCrear = yield this._tragosService.crear(trago);
-                console.log('Respuesta: ', respuestaCrear);
-                res.redirect('/api/traguito/lista');
+                const errores = yield class_validator_1.validate(tragoAValidar);
+                if (errores.length > 0) {
+                    console.log(errores);
+                    res.redirect('/api/traguito/crear?mensaje=Tienes un error en el formulario');
+                }
+                else {
+                    const respuestaCrear = yield this._tragosService.crear(trago);
+                    console.log('Respuesta: ', respuestaCrear);
+                    res.redirect('/api/traguito/lista');
+                }
             }
             catch (e) {
                 res.status(500);
@@ -68,9 +83,9 @@ __decorate([
 ], TragosController.prototype, "listarTragos", null);
 __decorate([
     common_1.Get('crear'),
-    __param(0, common_1.Response()),
+    __param(0, common_1.Response()), __param(1, common_1.Query('mensaje')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, String]),
     __metadata("design:returntype", void 0)
 ], TragosController.prototype, "crearTrago", null);
 __decorate([

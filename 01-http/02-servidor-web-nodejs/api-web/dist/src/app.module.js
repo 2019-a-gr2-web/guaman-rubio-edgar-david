@@ -34,7 +34,8 @@ AppModule = __decorate([
                 database: 'prueba',
                 entities: [tragos_entity_1.TragosEntity, fiesta_entity_1.FiestaEntity, distribuidor_entity_1.DistribuidorEntity],
                 synchronize: true,
-                insecureAuth: true
+                insecureAuth: true,
+                dropSchema: false
             }),
         ],
         controllers: [app_controller_1.AppController],
