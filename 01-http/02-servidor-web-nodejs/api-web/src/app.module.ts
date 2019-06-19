@@ -24,7 +24,8 @@ import {DistribuidorEntity} from "./distribuidor/distribuidor.entity";
       database: 'prueba',
       entities: [TragosEntity, FiestaEntity,DistribuidorEntity],
       synchronize: true,
-      insecureAuth:true
+      insecureAuth:true,
+      dropSchema: false
     }),],
   controllers: [AppController],
   providers: [AppService],
