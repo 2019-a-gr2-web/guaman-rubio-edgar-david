@@ -22,6 +22,38 @@ let AppController = class AppController {
     helloWorld() {
         return 'hello world';
     }
+    session(nombre, session) {
+        console.log(session);
+        session.autenticado = true;
+        session.nombreUsuario = nombre;
+        return 'ok';
+    }
+    loginVista(res) {
+        res.render('login');
+    }
+    login(usuario, session, res) {
+        if (usuario.username === 'edgar' && usuario.password === '12345') {
+            session.username = usuario.username;
+            res.redirect('/protegida');
+        }
+        else {
+            res.status(400);
+            res.send({ mensaje: 'Error login', error: 400 });
+        }
+    }
+    protegida(session, res) {
+        if (session.username) {
+            res.render('protegida', { nombre: session.username });
+        }
+        else {
+            res.redirect('/api/login');
+        }
+    }
+    logout(res, session) {
+        session.username = undefined;
+        session.destroy();
+        res.redirect('/api/login');
+    }
     holaMundo() {
         return 'Hola mundo en post';
     }
@@ -127,6 +159,45 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "helloWorld", null);
+__decorate([
+    common_1.Get('session'),
+    __param(0, common_1.Query('nombre')), __param(1, common_1.Session()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "session", null);
+__decorate([
+    common_1.Get('login'),
+    __param(0, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "loginVista", null);
+__decorate([
+    common_1.Post('login'),
+    __param(0, common_1.Body()),
+    __param(1, common_1.Session()),
+    __param(2, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "login", null);
+__decorate([
+    common_1.Get('protegida'),
+    __param(0, common_1.Session()),
+    __param(1, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "protegida", null);
+__decorate([
+    common_1.Get('logout'),
+    __param(0, common_1.Res()),
+    __param(1, common_1.Session()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "logout", null);
 __decorate([
     common_1.HttpCode(200),
     common_1.Post('/hola-mundo'),
