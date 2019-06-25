@@ -59,7 +59,6 @@ export class TragosController {
         } catch (e) {
             res.status(500);
             res.send({mensaje: 'Error', codigo: 500});
-
         }
 
 

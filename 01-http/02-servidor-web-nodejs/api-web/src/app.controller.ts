@@ -1,4 +1,18 @@
-import {Controller, Delete, Get, HttpCode, Post, Put, Headers, Query, Param, Body, Response, Request} from '@nestjs/common';
+import {
+    Controller,
+    Delete,
+    Get,
+    HttpCode,
+    Post,
+    Put,
+    Headers,
+    Query,
+    Param,
+    Body,
+    Response,
+    Request,
+    Session, Res
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import * as Joi from '@hapi/joi';
 
@@ -20,6 +34,63 @@ export class AppController {
   helloWorld(): string {
     return 'hello world';
   }
+
+  @Get('session')
+  session(@Query('nombre') nombre, @Session() session){
+      console.log(session);
+      session.autenticado = true;
+      session.nombreUsuario = nombre;
+      return 'ok'
+  }
+
+  @Get('login')
+  loginVista(
+      @Res() res
+  ){
+      res.render('login');
+  }
+
+  @Post('login')
+  login(@Body() usuario,
+        @Session() session,
+        @Res() res)
+  {
+      if(usuario.username ==='edgar' && usuario.password === '12345'){
+          //Guardar datos en la session
+          session.username = usuario.username;
+          res.redirect('/protegida')
+
+        }else{
+          res.status(400);
+          res.send({mensaje:'Error login',error:400})
+      }
+  }
+
+  @Get('protegida')
+  protegida(@Session() session,
+            @Res() res)
+  {
+      if(session.username){
+          res.render('protegida',{nombre:session.username});
+      }else{
+          res.redirect('/api/login');
+      }
+  }
+
+    @Get('logout')
+    logout(
+        @Res() res,
+        @Session() session,
+    ){
+        session.username = undefined;
+        session.destroy();
+        res.redirect('/api/login');
+    }
+
+
+
+
+
 
   @HttpCode(200)
 
