@@ -69,9 +69,34 @@ let TragosController = class TragosController {
             res.redirect('/api/traguito/lista');
         });
     }
-    eliminarTrago(id, res) {
-        this._tragosService.eliminarPorId(id);
-        res.redirect('/api/traguito/lista');
+    borrar(id, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const tragoAbuscar = yield this._tragosService.buscarPorId(+id);
+                yield this._tragosService.eliminarId(Number(id));
+                response.redirect('/api/traguito/lista');
+            }
+            catch (e) {
+                console.error(e);
+                response.status(500);
+                response.send({ mensaje: 'Error', codigo: 500 });
+            }
+        });
+    }
+    actualizarTrago(id, response, mensaje) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(Number(id));
+            const tragoAActualizar = yield this._tragosService.buscarPorId(Number(id));
+            console.log('trago', tragoAActualizar.nombre);
+            return response.render('tragos/crear-listar', { mensaje: mensaje, trago: tragoAActualizar });
+        });
+    }
+    actualizarTragoForm(id, response, trago) {
+        return __awaiter(this, void 0, void 0, function* () {
+            trago.id = +id;
+            yield this._tragosService.actualizar(+id, trago);
+            response.redirect('/api/traguito/lista');
+        });
     }
 };
 __decorate([
@@ -97,12 +122,30 @@ __decorate([
 ], TragosController.prototype, "crearTragoPost", null);
 __decorate([
     common_1.Post('eliminar'),
-    __param(0, common_1.Body()),
+    __param(0, common_1.Body('id')),
     __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),
-    __metadata("design:returntype", void 0)
-], TragosController.prototype, "eliminarTrago", null);
+    __metadata("design:returntype", Promise)
+], TragosController.prototype, "borrar", null);
+__decorate([
+    common_1.Get('editar/:id'),
+    __param(0, common_1.Param('id')),
+    __param(1, common_1.Res()),
+    __param(2, common_1.Query('mensaje')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object, String]),
+    __metadata("design:returntype", Promise)
+], TragosController.prototype, "actualizarTrago", null);
+__decorate([
+    common_1.Post('actualizar-trago/:id'),
+    __param(0, common_1.Param('id')),
+    __param(1, common_1.Res()),
+    __param(2, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object, Object]),
+    __metadata("design:returntype", Promise)
+], TragosController.prototype, "actualizarTragoForm", null);
 TragosController = __decorate([
     common_1.Controller('/api/traguito'),
     __metadata("design:paramtypes", [tragos_service_1.TragosService])

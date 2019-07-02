@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Response, Body, Res, Query} from "@nestjs/common";
+import {Controller, Get, Post, Response, Body, Res, Query, Param} from "@nestjs/common";
 import {TragosService} from "./tragos.service";
 import {Trago} from "./interfaces/trago";
 import {TragosCreateDto} from "./dto/tragos.create.dto";
@@ -73,12 +73,56 @@ export class TragosController {
     }
 
     @Post('eliminar')
+    async borrar(
+        @Body('id') id: number,
+        @Res() response
+    ) {
+        try {
+            const tragoAbuscar = await this._tragosService.buscarPorId(+id);
+            await this._tragosService.eliminarId(Number(id));
+            response.redirect('/api/traguito/lista');
+        }
+        catch
+            (e) {
+            console.error(e);
+            response.status(500);
+            response.send({mensaje: 'Error', codigo: 500});
+        }
+    }
+
+    @Get('editar/:id')
+    async actualizarTrago(
+        @Param('id') id: string,
+        @Res() response,
+        @Query('mensaje') mensaje:string
+    ) {
+        console.log(Number(id));
+        const tragoAActualizar = await this._tragosService.buscarPorId(Number(id));
+        console.log('trago', tragoAActualizar.nombre);
+
+        return response.render(
+            'tragos/crear-listar',
+            {mensaje: mensaje,trago: tragoAActualizar})
+    }
+
+    @Post('actualizar-trago/:id')
+    async actualizarTragoForm(
+        @Param('id') id: string,
+        @Res() response,
+        @Body() trago: Trago
+    ) {
+        trago.id = +id;
+        await this._tragosService.actualizar(+id, trago);
+        response.redirect('/api/traguito/lista');
+    }
+
+
+    /*@Post('eliminar')
     eliminarTrago(
         @Body() id: number,
         @Res() res
     ) {
         this._tragosService.eliminarPorId(id);
         res.redirect('/api/traguito/lista');
-    }
-
+    }*/
 }

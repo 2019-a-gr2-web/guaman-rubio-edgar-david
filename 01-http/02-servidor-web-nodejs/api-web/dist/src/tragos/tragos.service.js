@@ -21,23 +21,6 @@ let TragosService = class TragosService {
         this._tragosRepository = _tragosRepository;
         this.bddTragos = [];
         this.recnum = 1;
-        const traguito = {
-            nombre: 'Pilsener',
-            gradosAlcohol: 4.3,
-            fechaCaducidad: new Date(2019, 5, 20),
-            precio: 1.75,
-            tipo: "Cerveza"
-        };
-        const objetoEntidad = this._tragosRepository.create(traguito);
-        this._tragosRepository
-            .save(objetoEntidad)
-            .then((datos) => {
-            console.log('Dato creado:', datos);
-        })
-            .catch((error) => {
-            console.error('Error:', error);
-        });
-        this.crear(traguito);
     }
     crear(nuevoTrago) {
         const objetoEntidad = this._tragosRepository
@@ -47,18 +30,22 @@ let TragosService = class TragosService {
     buscar(parametrosBusqueda) {
         return this._tragosRepository.find(parametrosBusqueda);
     }
-    buscarPorId(id) {
-        return this.bddTragos.find((trago => { return trago.id === id; }));
+    actualizar(idTrago, nuevoTrago) {
+        nuevoTrago.id = idTrago;
+        const tragoEntity = this._tragosRepository.create(nuevoTrago);
+        return this._tragosRepository.save(tragoEntity);
+    }
+    eliminarId(id) {
+        const tragoaEliminar = this._tragosRepository
+            .create({ id: id });
+        return this._tragosRepository.remove(tragoaEliminar);
+    }
+    buscarPorId(idTrago) {
+        return this._tragosRepository.findOne(idTrago);
     }
     eliminarPorId(id) {
         const indice = this.bddTragos.findIndex((trago) => { return trago.id === id; });
         this.bddTragos.splice(indice, 1);
-        return this.bddTragos;
-    }
-    actualizar(tragoActualizado, id) {
-        const indice = this.bddTragos.findIndex((trago) => { return trago.id === id; });
-        tragoActualizado.id = this.bddTragos[indice].id;
-        this.bddTragos[indice] = tragoActualizado;
         return this.bddTragos;
     }
     buscarPorNombre(nombre) {

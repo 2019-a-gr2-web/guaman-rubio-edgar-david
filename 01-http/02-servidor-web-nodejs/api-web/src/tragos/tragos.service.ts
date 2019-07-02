@@ -11,30 +11,30 @@ export class TragosService {
 
     constructor(@InjectRepository(TragosEntity)
                 private readonly _tragosRepository: Repository<TragosEntity>,){
-        const traguito:Trago = {
-            nombre: 'Pilsener',
-            gradosAlcohol:4.3,
-            fechaCaducidad: new Date(2019,5,20),
-            precio:1.75,
-            tipo:"Cerveza"
-        };
+        // const traguito:Trago = {
+        //     nombre: 'Pilsener',
+        //     gradosAlcohol:4.3,
+        //     fechaCaducidad: new Date(2019,5,20),
+        //     precio:1.75,
+        //     tipo:"Cerveza"
+        // };
 
-        const objetoEntidad = this._tragosRepository.create(traguito);
+        //const objetoEntidad = this._tragosRepository.create(traguito);
 
-        this._tragosRepository
-            .save(objetoEntidad)//Promesa
-            .then(
-                (datos)=>{
-                    console.log('Dato creado:', datos);
-                }
-            )
-            .catch(
-                (error)=>{
-                    console.error('Error:', error);
-                }
-            );
-
-        this.crear(traguito)
+        // this._tragosRepository
+        //     .save(objetoEntidad)//Promesa
+        //     .then(
+        //         (datos)=>{
+        //             console.log('Dato creado:', datos);
+        //         }
+        //     )
+        //     .catch(
+        //         (error)=>{
+        //             console.error('Error:', error);
+        //         }
+        //     );
+        //
+        // this.crear(traguito)
 
     }
 
@@ -53,9 +53,26 @@ export class TragosService {
         return this._tragosRepository.find(parametrosBusqueda)
     }
 
-    buscarPorId(id:number):Trago{
-        return this.bddTragos.find((trago=>{return trago.id === id;}))
+    actualizar(idTrago: number,nuevoTrago: Trago): Promise<TragosEntity> {
+
+        nuevoTrago.id = idTrago;
+        const tragoEntity = this._tragosRepository.create(nuevoTrago);
+        return this._tragosRepository.save(tragoEntity);
     }
+
+    eliminarId(id: number): Promise<TragosEntity>{
+        const tragoaEliminar = this._tragosRepository
+            .create({id: id});
+        return this._tragosRepository.remove(tragoaEliminar)
+    }
+
+    buscarPorId(idTrago: number): Promise<TragosEntity> {
+        return this._tragosRepository.findOne(idTrago);
+    }
+
+    /*buscarPorId(id:number):Trago{
+        return this.bddTragos.find((trago=>{return trago.id === id;}))
+    }*/
 
     eliminarPorId(id: number):Trago[] {const indice = this.bddTragos.findIndex((trago)=>{return trago.id === id}
         );
@@ -63,14 +80,15 @@ export class TragosService {
         return this.bddTragos;
     }
 
-    actualizar(tragoActualizado: Trago, id:number):Trago[] {
+    /*actualizar(tragoActualizado: Trago, id:number):Trago[] {
         const indice = this.bddTragos.findIndex((trago)=>{return trago.id === id}
         );
         tragoActualizado.id = this.bddTragos[indice].id;
         this.bddTragos[indice] = tragoActualizado;
 
         return this.bddTragos;
-    }
+    }*/
+
     buscarPorNombre(nombre:string):Trago{
         return this.bddTragos.find((trago)=>{return trago.nombre.toUpperCase().includes(nombre.toUpperCase());
             }
