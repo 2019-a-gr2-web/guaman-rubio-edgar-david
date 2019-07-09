@@ -3,8 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>WebSockets</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+    <h1 id="titulo">CHAT EPN</h1>
+
+    <p class="par">Primero</p>
+
+    <p class="par">Segundo</p>
+
+    <div id="contenedor-chat">
+
+    </div>
+
+    <label for="chat-texto">Texto</label>
+    <input id="chat-texto" type="text">
+
+    <button onclick="enviarMensaje()">Añadir chat</button>
+
+    <script>
+        const titulo = document.getElementById('titulo');
+        titulo.style.backgroundColor = 'green';
+        titulo.onclick = () =>{
+            console.log('Se dio clic al titulo');
+        }
+
+        function clickParrafo() {
+            alert('Uso de la función clicParrafo');
+        }
+
+        function enviarMensaje() {
+            const chatTexto = document.getElementById('chat-texto');
+            const texto = chatTexto.value;
+            console.log(texto);
+            const idContenedor = 'contenedor-chat';
+            const nombreEtiquetaHTMLChat = "p";
+            const parrafo = document
+                .createElement(nombreEtiquetaHTMLChat);
+            const contenidoHTML = `
+        <div class="alert alert-primary text-right" role="alert">
+          ${texto}
+        </div>
+        `;
+            parrafo.innerHTML = contenidoHTML;
+            anadirEtiqueta(idContenedor, parrafo);
+            requestHolaMundo(texto);
+        }
+
+        function anadirEtiqueta(idEtiqueta, elementoHTML) {
+            const etiqueta = document.getElementById(idEtiqueta);
+            etiqueta.appendChild(elementoHTML);
+        }
+
+    </script>
+
     <!--<script src="/websockets/socket.io.js">-->
     <script src="/websockets/socket.io.js"></script>
     <script>
@@ -25,6 +77,13 @@
             socket.emit(nombreMetodo,datos)
         }
         socket.on('saludaron',(data)=>{console.log('Nos saludaron', data)} )
+
+        function requestHolaMundo(texto) {
+            const nombreMetodo = 'holaMundo';
+            const datos = {nombre:'Edgar'}
+            socket.emit(nombreMetodo,datos)
+        }
+
 
     </script>
 
