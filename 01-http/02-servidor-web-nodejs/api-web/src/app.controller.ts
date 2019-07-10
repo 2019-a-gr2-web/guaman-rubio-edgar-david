@@ -11,10 +11,11 @@ import {
     Body,
     Response,
     Request,
-    Session, Res
+    Session, Res, Render, UseInterceptors, UploadedFile
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import * as Joi from '@hapi/joi';
+import {FileInterceptor} from "@nestjs/platform-express";
 
 //Instalar la librería joi mediante npm i @hapi/joi
 
@@ -29,6 +30,29 @@ export class AppController {
   3)Segmento Accion: PUT 'salut-monde'
   4)Segmento Accion: DELETE 'ciao-mondo'
   */
+
+  @Get('subirArchivo/:idTrago')
+  @Render('archivo')
+  subirArchivo(@Param('idTrago') idTrago) {
+      return{
+          idTrago:idTrago
+      };
+    }
+
+  @Post('subirArchivo/:idTrago')
+  @UseInterceptors(FileInterceptor('imagen',{dest: __dirname + '/../archivos'}))
+  subirArchivoPost(@Param('idTrago') idTrago, @UploadedFile() archivo){
+    console.log(archivo);
+    return {mensaje:'ok'};
+  }
+
+  @Get('descargarArchivo/:idTrago')
+  descargarArchivo(@Res() res, @Param('idTrago')idTrago) {
+      const originalName = 'Bob esponja primitivo.jpg'
+      const path = 'C:\\Users\\Edgar\\Documents\\GitHub\\guaman-rubio-edgar-david\\01-http\\02-servidor-web-nodejs\\api-web\\archivos\\accac5534f1fa5519daf01d358eda152'
+      res.download(path, originalName)
+  }
+
 
   @Get('/hello-world') //Método http
   helloWorld(): string {
